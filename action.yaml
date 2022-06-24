@@ -1,0 +1,32 @@
+name: 'sign'
+author: 'blendthink'
+description: ''
+branding:
+  icon: alert-circle
+  color: blue
+
+inputs:
+  aaa:
+    description: ''
+    required: true
+    default: ''
+  bbb:
+    description: ''
+    required: true
+    default: ''
+
+outputs:
+  ccc:
+    value: ''
+    description: ''
+
+runs:
+  using: composite
+  steps:
+    - name: aaa
+      shell: bash
+      run: |
+
+    - name: bbb
+      shell: bash
+      run: |
