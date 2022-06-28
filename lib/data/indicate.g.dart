@@ -12,7 +12,7 @@ _$_Indicate _$$_IndicateFromJson(Map<String, dynamic> json) => _$_Indicate(
       path: json['path'] as String,
       row: json['row'] as int,
       column: json['column'] as int,
-      lintRule: json['lintRule'] as String,
+      summary: json['summary'] as String,
     );
 
 Map<String, dynamic> _$$_IndicateToJson(_$_Indicate instance) =>
@@ -22,7 +22,7 @@ Map<String, dynamic> _$$_IndicateToJson(_$_Indicate instance) =>
       'path': instance.path,
       'row': instance.row,
       'column': instance.column,
-      'lintRule': instance.lintRule,
+      'summary': instance.summary,
     };
 
 const _$IndicateTypeEnumMap = {

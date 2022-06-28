@@ -29,8 +29,8 @@ mixin _$Indicate {
   int get row => throw _privateConstructorUsedError;
   @Assert('column >= 1')
   int get column => throw _privateConstructorUsedError;
-  @Assert('lintRule.isNotEmpty')
-  String get lintRule => throw _privateConstructorUsedError;
+  @Assert('summary.isNotEmpty')
+  String get summary => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +48,7 @@ abstract class $IndicateCopyWith<$Res> {
       @Assert('path.isNotEmpty') String path,
       @Assert('row >= 1') int row,
       @Assert('column >= 1') int column,
-      @Assert('lintRule.isNotEmpty') String lintRule});
+      @Assert('summary.isNotEmpty') String summary});
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$IndicateCopyWithImpl<$Res> implements $IndicateCopyWith<$Res> {
     Object? path = freezed,
     Object? row = freezed,
     Object? column = freezed,
-    Object? lintRule = freezed,
+    Object? summary = freezed,
   }) {
     return _then(_value.copyWith(
       type: type == freezed
@@ -89,9 +89,9 @@ class _$IndicateCopyWithImpl<$Res> implements $IndicateCopyWith<$Res> {
           ? _value.column
           : column // ignore: cast_nullable_to_non_nullable
               as int,
-      lintRule: lintRule == freezed
-          ? _value.lintRule
-          : lintRule // ignore: cast_nullable_to_non_nullable
+      summary: summary == freezed
+          ? _value.summary
+          : summary // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -109,7 +109,7 @@ abstract class _$$_IndicateCopyWith<$Res> implements $IndicateCopyWith<$Res> {
       @Assert('path.isNotEmpty') String path,
       @Assert('row >= 1') int row,
       @Assert('column >= 1') int column,
-      @Assert('lintRule.isNotEmpty') String lintRule});
+      @Assert('summary.isNotEmpty') String summary});
 }
 
 /// @nodoc
@@ -129,7 +129,7 @@ class __$$_IndicateCopyWithImpl<$Res> extends _$IndicateCopyWithImpl<$Res>
     Object? path = freezed,
     Object? row = freezed,
     Object? column = freezed,
-    Object? lintRule = freezed,
+    Object? summary = freezed,
   }) {
     return _then(_$_Indicate(
       type: type == freezed
@@ -152,9 +152,9 @@ class __$$_IndicateCopyWithImpl<$Res> extends _$IndicateCopyWithImpl<$Res>
           ? _value.column
           : column // ignore: cast_nullable_to_non_nullable
               as int,
-      lintRule: lintRule == freezed
-          ? _value.lintRule
-          : lintRule // ignore: cast_nullable_to_non_nullable
+      summary: summary == freezed
+          ? _value.summary
+          : summary // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -169,7 +169,7 @@ class _$_Indicate implements _Indicate {
       @Assert('path.isNotEmpty') required this.path,
       @Assert('row >= 1') required this.row,
       @Assert('column >= 1') required this.column,
-      @Assert('lintRule.isNotEmpty') required this.lintRule});
+      @Assert('summary.isNotEmpty') required this.summary});
 
   factory _$_Indicate.fromJson(Map<String, dynamic> json) =>
       _$$_IndicateFromJson(json);
@@ -189,12 +189,12 @@ class _$_Indicate implements _Indicate {
   @Assert('column >= 1')
   final int column;
   @override
-  @Assert('lintRule.isNotEmpty')
-  final String lintRule;
+  @Assert('summary.isNotEmpty')
+  final String summary;
 
   @override
   String toString() {
-    return 'Indicate(type: $type, message: $message, path: $path, row: $row, column: $column, lintRule: $lintRule)';
+    return 'Indicate(type: $type, message: $message, path: $path, row: $row, column: $column, summary: $summary)';
   }
 
   @override
@@ -207,7 +207,7 @@ class _$_Indicate implements _Indicate {
             const DeepCollectionEquality().equals(other.path, path) &&
             const DeepCollectionEquality().equals(other.row, row) &&
             const DeepCollectionEquality().equals(other.column, column) &&
-            const DeepCollectionEquality().equals(other.lintRule, lintRule));
+            const DeepCollectionEquality().equals(other.summary, summary));
   }
 
   @JsonKey(ignore: true)
@@ -219,7 +219,7 @@ class _$_Indicate implements _Indicate {
       const DeepCollectionEquality().hash(path),
       const DeepCollectionEquality().hash(row),
       const DeepCollectionEquality().hash(column),
-      const DeepCollectionEquality().hash(lintRule));
+      const DeepCollectionEquality().hash(summary));
 
   @JsonKey(ignore: true)
   @override
@@ -239,7 +239,7 @@ abstract class _Indicate implements Indicate {
           @Assert('path.isNotEmpty') required final String path,
           @Assert('row >= 1') required final int row,
           @Assert('column >= 1') required final int column,
-          @Assert('lintRule.isNotEmpty') required final String lintRule}) =
+          @Assert('summary.isNotEmpty') required final String summary}) =
       _$_Indicate;
 
   factory _Indicate.fromJson(Map<String, dynamic> json) = _$_Indicate.fromJson;
@@ -259,8 +259,8 @@ abstract class _Indicate implements Indicate {
   @Assert('column >= 1')
   int get column => throw _privateConstructorUsedError;
   @override
-  @Assert('lintRule.isNotEmpty')
-  String get lintRule => throw _privateConstructorUsedError;
+  @Assert('summary.isNotEmpty')
+  String get summary => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_IndicateCopyWith<_$_Indicate> get copyWith =>

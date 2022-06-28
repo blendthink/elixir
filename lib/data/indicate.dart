@@ -17,8 +17,8 @@ abstract class Indicate with _$Indicate {
     required int row,
     @Assert('column >= 1')
     required int column,
-    @Assert('lintRule.isNotEmpty')
-    required String lintRule,
+    @Assert('summary.isNotEmpty')
+    required String summary,
   }) = _Indicate;
 
   factory Indicate.fromJson(Map<String, Object?> json) =>
