@@ -9,10 +9,15 @@ part 'indicate.g.dart';
 abstract class Indicate with _$Indicate {
   const factory Indicate({
     required IndicateType type,
+    @Assert('message.isNotEmpty')
     required String message,
+    @Assert('path.isNotEmpty')
     required String path,
+    @Assert('row >= 1')
     required int row,
+    @Assert('column >= 1')
     required int column,
+    @Assert('lintRule.isNotEmpty')
     required String lintRule,
   }) = _Indicate;
 

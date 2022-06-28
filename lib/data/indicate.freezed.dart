@@ -21,10 +21,15 @@ Indicate _$IndicateFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Indicate {
   IndicateType get type => throw _privateConstructorUsedError;
+  @Assert('message.isNotEmpty')
   String get message => throw _privateConstructorUsedError;
+  @Assert('path.isNotEmpty')
   String get path => throw _privateConstructorUsedError;
+  @Assert('row >= 1')
   int get row => throw _privateConstructorUsedError;
+  @Assert('column >= 1')
   int get column => throw _privateConstructorUsedError;
+  @Assert('lintRule.isNotEmpty')
   String get lintRule => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,11 +44,11 @@ abstract class $IndicateCopyWith<$Res> {
       _$IndicateCopyWithImpl<$Res>;
   $Res call(
       {IndicateType type,
-      String message,
-      String path,
-      int row,
-      int column,
-      String lintRule});
+      @Assert('message.isNotEmpty') String message,
+      @Assert('path.isNotEmpty') String path,
+      @Assert('row >= 1') int row,
+      @Assert('column >= 1') int column,
+      @Assert('lintRule.isNotEmpty') String lintRule});
 }
 
 /// @nodoc
@@ -100,11 +105,11 @@ abstract class _$$_IndicateCopyWith<$Res> implements $IndicateCopyWith<$Res> {
   @override
   $Res call(
       {IndicateType type,
-      String message,
-      String path,
-      int row,
-      int column,
-      String lintRule});
+      @Assert('message.isNotEmpty') String message,
+      @Assert('path.isNotEmpty') String path,
+      @Assert('row >= 1') int row,
+      @Assert('column >= 1') int column,
+      @Assert('lintRule.isNotEmpty') String lintRule});
 }
 
 /// @nodoc
@@ -160,11 +165,11 @@ class __$$_IndicateCopyWithImpl<$Res> extends _$IndicateCopyWithImpl<$Res>
 class _$_Indicate implements _Indicate {
   const _$_Indicate(
       {required this.type,
-      required this.message,
-      required this.path,
-      required this.row,
-      required this.column,
-      required this.lintRule});
+      @Assert('message.isNotEmpty') required this.message,
+      @Assert('path.isNotEmpty') required this.path,
+      @Assert('row >= 1') required this.row,
+      @Assert('column >= 1') required this.column,
+      @Assert('lintRule.isNotEmpty') required this.lintRule});
 
   factory _$_Indicate.fromJson(Map<String, dynamic> json) =>
       _$$_IndicateFromJson(json);
@@ -172,14 +177,19 @@ class _$_Indicate implements _Indicate {
   @override
   final IndicateType type;
   @override
+  @Assert('message.isNotEmpty')
   final String message;
   @override
+  @Assert('path.isNotEmpty')
   final String path;
   @override
+  @Assert('row >= 1')
   final int row;
   @override
+  @Assert('column >= 1')
   final int column;
   @override
+  @Assert('lintRule.isNotEmpty')
   final String lintRule;
 
   @override
@@ -224,26 +234,32 @@ class _$_Indicate implements _Indicate {
 
 abstract class _Indicate implements Indicate {
   const factory _Indicate(
-      {required final IndicateType type,
-      required final String message,
-      required final String path,
-      required final int row,
-      required final int column,
-      required final String lintRule}) = _$_Indicate;
+          {required final IndicateType type,
+          @Assert('message.isNotEmpty') required final String message,
+          @Assert('path.isNotEmpty') required final String path,
+          @Assert('row >= 1') required final int row,
+          @Assert('column >= 1') required final int column,
+          @Assert('lintRule.isNotEmpty') required final String lintRule}) =
+      _$_Indicate;
 
   factory _Indicate.fromJson(Map<String, dynamic> json) = _$_Indicate.fromJson;
 
   @override
   IndicateType get type => throw _privateConstructorUsedError;
   @override
+  @Assert('message.isNotEmpty')
   String get message => throw _privateConstructorUsedError;
   @override
+  @Assert('path.isNotEmpty')
   String get path => throw _privateConstructorUsedError;
   @override
+  @Assert('row >= 1')
   int get row => throw _privateConstructorUsedError;
   @override
+  @Assert('column >= 1')
   int get column => throw _privateConstructorUsedError;
   @override
+  @Assert('lintRule.isNotEmpty')
   String get lintRule => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
