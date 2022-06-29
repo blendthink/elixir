@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:sign/data/indicate_type.dart';
+import 'package:sign/data/model/indicate_type.dart';
 
 part 'indicate.freezed.dart';
 
