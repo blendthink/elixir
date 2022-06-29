@@ -19,3 +19,20 @@ abstract class Indicate with _$Indicate {
   factory Indicate.fromJson(Map<String, Object?> json) =>
       _$IndicateFromJson(json);
 }
+
+extension IndicateExt on Indicate {
+  String get _title {
+    switch (type) {
+      case IndicateType.info:
+        return ':speech_balloon: **Info**';
+      case IndicateType.warning:
+        return ':warning: **Warning**';
+      case IndicateType.error:
+        return ':fire: **Error**';
+    }
+  }
+
+  String get comment => '''
+> $_title : `$summary`
+> $message''';
+}
