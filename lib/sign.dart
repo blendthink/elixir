@@ -1,3 +1,1 @@
-int calculate() {
-  return 6 * 7;
-}
+Future<void> run(List<String> args) async {}
