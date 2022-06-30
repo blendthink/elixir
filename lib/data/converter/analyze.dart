@@ -2,14 +2,14 @@ import 'package:sign/data/model/indicate.dart';
 import 'package:sign/data/model/indicate_type.dart';
 
 class AnalyzeConverter {
-  final regex =
+  final _regex =
       RegExp(r'^ *(info|warning|error) • (.*) • (.*):(\d*):(\d*) • (.*)');
 
   List<Indicate> convert(String analyzeResult) {
     final lines = analyzeResult.split('\n');
 
     final indicates = lines.map((line) {
-      final match = regex.firstMatch(line);
+      final match = _regex.firstMatch(line);
       if (match == null) return null;
 
       final type = IndicateType.values.byName(match.group(1)!);
