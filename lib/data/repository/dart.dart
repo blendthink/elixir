@@ -5,7 +5,7 @@ import 'package:sign/data/source/process.dart';
 class DartRepository {
   final ProcessRunner _runner;
 
-  DartRepository({
+  const DartRepository({
     ProcessRunner runner = const ProcessRunner('dart'),
   }) : _runner = runner;
 
