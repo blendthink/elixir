@@ -1,13 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'indicate.dart';
+part of 'diagnostics.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Indicate _$$_IndicateFromJson(Map<String, dynamic> json) => _$_Indicate(
-      type: $enumDecode(_$IndicateTypeEnumMap, json['type']),
+_$_Diagnostics _$$_DiagnosticsFromJson(Map<String, dynamic> json) =>
+    _$_Diagnostics(
+      type: $enumDecode(_$DiagnosticsTypeEnumMap, json['type']),
       message: json['message'] as String,
       path: json['path'] as String,
       row: json['row'] as int,
@@ -15,9 +16,9 @@ _$_Indicate _$$_IndicateFromJson(Map<String, dynamic> json) => _$_Indicate(
       summary: json['summary'] as String,
     );
 
-Map<String, dynamic> _$$_IndicateToJson(_$_Indicate instance) =>
+Map<String, dynamic> _$$_DiagnosticsToJson(_$_Diagnostics instance) =>
     <String, dynamic>{
-      'type': _$IndicateTypeEnumMap[instance.type],
+      'type': _$DiagnosticsTypeEnumMap[instance.type],
       'message': instance.message,
       'path': instance.path,
       'row': instance.row,
@@ -25,8 +26,8 @@ Map<String, dynamic> _$$_IndicateToJson(_$_Indicate instance) =>
       'summary': instance.summary,
     };
 
-const _$IndicateTypeEnumMap = {
-  IndicateType.info: 'info',
-  IndicateType.warning: 'warning',
-  IndicateType.error: 'error',
+const _$DiagnosticsTypeEnumMap = {
+  DiagnosticsType.info: 'info',
+  DiagnosticsType.warning: 'warning',
+  DiagnosticsType.error: 'error',
 };

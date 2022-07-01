@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'indicate.dart';
+part of 'diagnostics.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,13 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Indicate _$IndicateFromJson(Map<String, dynamic> json) {
-  return _Indicate.fromJson(json);
+Diagnostics _$DiagnosticsFromJson(Map<String, dynamic> json) {
+  return _Diagnostics.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Indicate {
-  IndicateType get type => throw _privateConstructorUsedError;
+mixin _$Diagnostics {
+  DiagnosticsType get type => throw _privateConstructorUsedError;
   @Assert('message.isNotEmpty')
   String get message => throw _privateConstructorUsedError;
   @Assert('path.isNotEmpty')
@@ -34,16 +34,17 @@ mixin _$Indicate {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $IndicateCopyWith<Indicate> get copyWith =>
+  $DiagnosticsCopyWith<Diagnostics> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $IndicateCopyWith<$Res> {
-  factory $IndicateCopyWith(Indicate value, $Res Function(Indicate) then) =
-      _$IndicateCopyWithImpl<$Res>;
+abstract class $DiagnosticsCopyWith<$Res> {
+  factory $DiagnosticsCopyWith(
+          Diagnostics value, $Res Function(Diagnostics) then) =
+      _$DiagnosticsCopyWithImpl<$Res>;
   $Res call(
-      {IndicateType type,
+      {DiagnosticsType type,
       @Assert('message.isNotEmpty') String message,
       @Assert('path.isNotEmpty') String path,
       @Assert('row >= 1') int row,
@@ -52,12 +53,12 @@ abstract class $IndicateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$IndicateCopyWithImpl<$Res> implements $IndicateCopyWith<$Res> {
-  _$IndicateCopyWithImpl(this._value, this._then);
+class _$DiagnosticsCopyWithImpl<$Res> implements $DiagnosticsCopyWith<$Res> {
+  _$DiagnosticsCopyWithImpl(this._value, this._then);
 
-  final Indicate _value;
+  final Diagnostics _value;
   // ignore: unused_field
-  final $Res Function(Indicate) _then;
+  final $Res Function(Diagnostics) _then;
 
   @override
   $Res call({
@@ -72,7 +73,7 @@ class _$IndicateCopyWithImpl<$Res> implements $IndicateCopyWith<$Res> {
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as IndicateType,
+              as DiagnosticsType,
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -98,13 +99,14 @@ class _$IndicateCopyWithImpl<$Res> implements $IndicateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_IndicateCopyWith<$Res> implements $IndicateCopyWith<$Res> {
-  factory _$$_IndicateCopyWith(
-          _$_Indicate value, $Res Function(_$_Indicate) then) =
-      __$$_IndicateCopyWithImpl<$Res>;
+abstract class _$$_DiagnosticsCopyWith<$Res>
+    implements $DiagnosticsCopyWith<$Res> {
+  factory _$$_DiagnosticsCopyWith(
+          _$_Diagnostics value, $Res Function(_$_Diagnostics) then) =
+      __$$_DiagnosticsCopyWithImpl<$Res>;
   @override
   $Res call(
-      {IndicateType type,
+      {DiagnosticsType type,
       @Assert('message.isNotEmpty') String message,
       @Assert('path.isNotEmpty') String path,
       @Assert('row >= 1') int row,
@@ -113,14 +115,14 @@ abstract class _$$_IndicateCopyWith<$Res> implements $IndicateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_IndicateCopyWithImpl<$Res> extends _$IndicateCopyWithImpl<$Res>
-    implements _$$_IndicateCopyWith<$Res> {
-  __$$_IndicateCopyWithImpl(
-      _$_Indicate _value, $Res Function(_$_Indicate) _then)
-      : super(_value, (v) => _then(v as _$_Indicate));
+class __$$_DiagnosticsCopyWithImpl<$Res> extends _$DiagnosticsCopyWithImpl<$Res>
+    implements _$$_DiagnosticsCopyWith<$Res> {
+  __$$_DiagnosticsCopyWithImpl(
+      _$_Diagnostics _value, $Res Function(_$_Diagnostics) _then)
+      : super(_value, (v) => _then(v as _$_Diagnostics));
 
   @override
-  _$_Indicate get _value => super._value as _$_Indicate;
+  _$_Diagnostics get _value => super._value as _$_Diagnostics;
 
   @override
   $Res call({
@@ -131,11 +133,11 @@ class __$$_IndicateCopyWithImpl<$Res> extends _$IndicateCopyWithImpl<$Res>
     Object? column = freezed,
     Object? summary = freezed,
   }) {
-    return _then(_$_Indicate(
+    return _then(_$_Diagnostics(
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as IndicateType,
+              as DiagnosticsType,
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -162,8 +164,8 @@ class __$$_IndicateCopyWithImpl<$Res> extends _$IndicateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Indicate implements _Indicate {
-  const _$_Indicate(
+class _$_Diagnostics implements _Diagnostics {
+  const _$_Diagnostics(
       {required this.type,
       @Assert('message.isNotEmpty') required this.message,
       @Assert('path.isNotEmpty') required this.path,
@@ -171,11 +173,11 @@ class _$_Indicate implements _Indicate {
       @Assert('column >= 1') required this.column,
       @Assert('summary.isNotEmpty') required this.summary});
 
-  factory _$_Indicate.fromJson(Map<String, dynamic> json) =>
-      _$$_IndicateFromJson(json);
+  factory _$_Diagnostics.fromJson(Map<String, dynamic> json) =>
+      _$$_DiagnosticsFromJson(json);
 
   @override
-  final IndicateType type;
+  final DiagnosticsType type;
   @override
   @Assert('message.isNotEmpty')
   final String message;
@@ -194,14 +196,14 @@ class _$_Indicate implements _Indicate {
 
   @override
   String toString() {
-    return 'Indicate(type: $type, message: $message, path: $path, row: $row, column: $column, summary: $summary)';
+    return 'Diagnostics(type: $type, message: $message, path: $path, row: $row, column: $column, summary: $summary)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Indicate &&
+            other is _$_Diagnostics &&
             const DeepCollectionEquality().equals(other.type, type) &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality().equals(other.path, path) &&
@@ -223,29 +225,30 @@ class _$_Indicate implements _Indicate {
 
   @JsonKey(ignore: true)
   @override
-  _$$_IndicateCopyWith<_$_Indicate> get copyWith =>
-      __$$_IndicateCopyWithImpl<_$_Indicate>(this, _$identity);
+  _$$_DiagnosticsCopyWith<_$_Diagnostics> get copyWith =>
+      __$$_DiagnosticsCopyWithImpl<_$_Diagnostics>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_IndicateToJson(this);
+    return _$$_DiagnosticsToJson(this);
   }
 }
 
-abstract class _Indicate implements Indicate {
-  const factory _Indicate(
-          {required final IndicateType type,
+abstract class _Diagnostics implements Diagnostics {
+  const factory _Diagnostics(
+          {required final DiagnosticsType type,
           @Assert('message.isNotEmpty') required final String message,
           @Assert('path.isNotEmpty') required final String path,
           @Assert('row >= 1') required final int row,
           @Assert('column >= 1') required final int column,
           @Assert('summary.isNotEmpty') required final String summary}) =
-      _$_Indicate;
+      _$_Diagnostics;
 
-  factory _Indicate.fromJson(Map<String, dynamic> json) = _$_Indicate.fromJson;
+  factory _Diagnostics.fromJson(Map<String, dynamic> json) =
+      _$_Diagnostics.fromJson;
 
   @override
-  IndicateType get type => throw _privateConstructorUsedError;
+  DiagnosticsType get type => throw _privateConstructorUsedError;
   @override
   @Assert('message.isNotEmpty')
   String get message => throw _privateConstructorUsedError;
@@ -263,6 +266,6 @@ abstract class _Indicate implements Indicate {
   String get summary => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$_IndicateCopyWith<_$_Indicate> get copyWith =>
+  _$$_DiagnosticsCopyWith<_$_Diagnostics> get copyWith =>
       throw _privateConstructorUsedError;
 }

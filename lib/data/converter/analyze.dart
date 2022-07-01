@@ -1,24 +1,24 @@
-import 'package:sign/data/model/indicate.dart';
-import 'package:sign/data/model/indicate_type.dart';
+import 'package:sign/data/model/diagnostics.dart';
+import 'package:sign/data/model/diagnostics_type.dart';
 
 class AnalyzeConverter {
   final _regex =
       RegExp(r'^ *(info|warning|error) • (.*) • (.*):(\d*):(\d*) • (.*)');
 
-  List<Indicate> convert(String analyzeResult) {
+  List<Diagnostics> convert(String analyzeResult) {
     final lines = analyzeResult.split('\n');
 
-    final indicates = lines.map((line) {
+    final diagnoses = lines.map((line) {
       final match = _regex.firstMatch(line);
       if (match == null) return null;
 
-      final type = IndicateType.values.byName(match.group(1)!);
+      final type = DiagnosticsType.values.byName(match.group(1)!);
       final message = match.group(2)!;
       final path = match.group(3)!;
       final row = int.parse(match.group(4)!);
       final column = int.parse(match.group(5)!);
       final summary = match.group(6)!;
-      return Indicate(
+      return Diagnostics(
         type: type,
         message: message,
         path: path,
@@ -26,8 +26,8 @@ class AnalyzeConverter {
         column: column,
         summary: summary,
       );
-    }).whereType<Indicate>();
+    }).whereType<Diagnostics>();
 
-    return indicates.toList();
+    return diagnoses.toList();
   }
 }

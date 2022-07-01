@@ -1,4 +1,4 @@
-enum IndicateType {
+enum DiagnosticsType {
   info,
   warning,
   error,
