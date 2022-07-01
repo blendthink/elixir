@@ -63,6 +63,5 @@ extension DiagnosticExt on Diagnostic {
 
   String get body => '''
 > $_title `$code`
-> $problemMessage
-''';
+> $problemMessage''';
 }
