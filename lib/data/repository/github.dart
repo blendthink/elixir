@@ -6,7 +6,7 @@ import 'package:sign/data/source/process.dart';
 class GitHubRepository {
   final ProcessRunner _runner;
 
-  GitHubRepository({
+  const GitHubRepository({
     ProcessRunner runner = const ProcessRunner('gh'),
   }) : _runner = runner;
 
