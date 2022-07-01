@@ -15,16 +15,18 @@ class GetIndicatesUseCase {
   })  : _dartRepository = dartRepository,
         _gitRepository = gitRepository;
 
-  Future<List<Indicate>> call({
+  Future<Iterable<Indicate>> call({
     required String base,
     required String head,
   }) async {
     final result = await _dartRepository.analyze();
 
-    return Future.wait(result.diagnostics.map((diagnostic) async {
-      final body = diagnostic.body;
-      final path = p.relative(diagnostic.location.file);
-      final line = diagnostic.location.range.start.line;
+    final indicates = await Future.wait(result.diagnostics.map((diag) async {
+      if (diag.severity == DiagnosticSeverity.none) return null;
+
+      final body = diag.body;
+      final path = p.relative(diag.location.file);
+      final line = diag.location.range.start.line;
 
       final commitId = await _gitRepository.getLatestCommitId(
         base: base,
@@ -32,8 +34,12 @@ class GetIndicatesUseCase {
         path: path,
         line: line,
       );
+      if (commitId.isEmpty) return null;
+
       return Indicate(body: body, commitId: commitId, path: path, line: line);
     }));
+
+    return indicates.whereType<Indicate>();
   }
 }
 

@@ -8,7 +8,9 @@ class GitRepository {
   }) : _runner = runner;
 
   /// git log {base}..{head} --format=%H -n 1 -L {line},+1:{path} | grep -E '^([0-9|a-z]){40}'
-  /// Result: e.q. 6d87458a8089ae5d025b087bfb9b0809d2060411
+  ///
+  /// If there is no commit between {base} and {head}: ''
+  /// If a commit exists between {base} and {head}: e.g. '6d87458a8089ae5d025b087bfb9b0809d2060411'
   Future<String> getLatestCommitId({
     required String base,
     required String head,
