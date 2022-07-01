@@ -16,11 +16,11 @@ class GetIndicatesUseCase {
         _gitRepository = gitRepository;
 
   Future<Iterable<Indicate>> call({
-    required String directory,
+    required String dir,
     required String base,
     required String head,
   }) async {
-    final result = await _dartRepository.analyze(directory: directory);
+    final result = await _dartRepository.analyze(dir: dir);
 
     final indicates = await Future.wait(result.diagnostics.map((diag) async {
       // If severity is none, then it is excluded from the list.

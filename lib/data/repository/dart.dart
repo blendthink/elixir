@@ -11,9 +11,9 @@ class DartRepository {
   }) : _runner = runner;
 
   Future<AnalysisResults> analyze({
-    required String directory,
+    required String dir,
   }) async {
-    final result = await _runner.run(['analyze', '--format=json', directory]);
+    final result = await _runner.run(['analyze', '--format=json', dir]);
 
     final jsonStart = result.indexOf('{');
     final jsonEnd = result.lastIndexOf('}');
