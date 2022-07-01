@@ -21,7 +21,7 @@ class ProcessRunner {
     if (stderr.isNotEmpty) log.e(stderr);
 
     if (result.exitCode != 0) {
-      throw ProcessException._(result);
+      throw ProcessException(result.exitCode);
     }
 
     return stdout;
@@ -29,10 +29,10 @@ class ProcessRunner {
 }
 
 class ProcessException implements Exception {
-  final ProcessResult result;
+  final int exitCode;
 
-  ProcessException._(this.result);
+  const ProcessException(this.exitCode);
 
   @override
-  String toString() => 'failed with exit code ${result.exitCode}';
+  String toString() => 'failed with exit code $exitCode';
 }

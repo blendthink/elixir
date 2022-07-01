@@ -12,7 +12,51 @@ Future<void> main() async {
   final runner = MockProcessRunner();
   final repository = DartRepository(runner: runner);
 
-  test('description', () async {
+  test('Diagnostics is empty.', () async {
+    when(runner.run(any))
+        .thenAnswer((_) async => '''{"version":1,"diagnostics":[]}''');
+
+    final expected = AnalysisResults(
+      version: 1,
+      diagnostics: <Diagnostic>[],
+    );
+
+    final actual = await repository.analyze();
+    expect(actual, expected);
+  });
+
+  test('One diagnostic exists.', () async {
+    when(runner.run(any)).thenAnswer((_) async =>
+        '''{"version":1,"diagnostics":[{"code":"argument_type_not_assignable","severity":"ERROR","type":"COMPILE_TIME_ERROR","location":{"file":"/Users/blendthink/Documents/repositories/danger-flutter-lint-demo/lib/main.dart","range":{"start":{"offset":305,"line":14,"column":14},"end":{"offset":309,"line":14,"column":18}}},"problemMessage":"The argument type 'Null' can't be assigned to the parameter type 'String'.","documentation":"https://dart.dev/diagnostics/argument_type_not_assignable"}]}''');
+
+    final expected = AnalysisResults(
+      version: 1,
+      diagnostics: <Diagnostic>[
+        Diagnostic(
+          code: 'argument_type_not_assignable',
+          severity: DiagnosticSeverity.error,
+          type: DiagnosticType.compileTimeError,
+          location: Location(
+            file:
+                '/Users/blendthink/Documents/repositories/danger-flutter-lint-demo/lib/main.dart',
+            range: Range(
+              start: Position(offset: 305, line: 14, column: 14),
+              end: Position(offset: 309, line: 14, column: 18),
+            ),
+          ),
+          problemMessage:
+              "The argument type 'Null' can't be assigned to the parameter type 'String'.",
+          documentation:
+              'https://dart.dev/diagnostics/argument_type_not_assignable',
+        ),
+      ],
+    );
+
+    final actual = await repository.analyze();
+    expect(actual, expected);
+  });
+
+  test('Multiple diagnostics exist.', () async {
     when(runner.run(any)).thenAnswer((_) async =>
         '''{"version":1,"diagnostics":[{"code":"argument_type_not_assignable","severity":"ERROR","type":"COMPILE_TIME_ERROR","location":{"file":"/Users/blendthink/Documents/repositories/danger-flutter-lint-demo/lib/main.dart","range":{"start":{"offset":305,"line":14,"column":14},"end":{"offset":309,"line":14,"column":18}}},"problemMessage":"The argument type 'Null' can't be assigned to the parameter type 'String'.","documentation":"https://dart.dev/diagnostics/argument_type_not_assignable"},{"code":"unrecognized_error_code","severity":"WARNING","type":"STATIC_WARNING","location":{"file":"/Users/blendthink/Documents/repositories/danger-flutter-lint-demo/analysis_options.yaml","range":{"start":{"offset":121,"line":5,"column":5},"end":{"offset":125,"line":5,"column":9}}},"problemMessage":"'demo' isn't a recognized error code."},{"code":"always_put_required_named_parameters_first","severity":"INFO","type":"LINT","location":{"file":"/Users/blendthink/Documents/repositories/danger-flutter-lint-demo/lib/main.dart","range":{"start":{"offset":1094,"line":33,"column":45},"end":{"offset":1099,"line":33,"column":50}}},"problemMessage":"Put required named parameters first.","documentation":"https://dart-lang.github.io/linter/lints/always_put_required_named_parameters_first.html"}]}''');
 
@@ -71,5 +115,13 @@ Future<void> main() async {
 
     final actual = await repository.analyze();
     expect(actual, expected);
+  });
+
+  test('Throw ProcessException.', () async {
+    when(runner.run(any)).thenThrow(const ProcessException(1));
+    expect(
+      () async => await repository.analyze(),
+      throwsA(TypeMatcher<ProcessException>()),
+    );
   });
 }
