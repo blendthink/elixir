@@ -22,7 +22,7 @@ No issues found!''');
       diagnostics: <Diagnostic>[],
     );
 
-    final actual = await repository.analyze();
+    final actual = await repository.analyze(directory: './');
     expect(actual, expected);
   });
 
@@ -54,7 +54,7 @@ Analyzing danger-flutter-lint-demo...  1.7s
       ],
     );
 
-    final actual = await repository.analyze();
+    final actual = await repository.analyze(directory: './');
     expect(actual, expected);
   });
 
@@ -116,14 +116,14 @@ Analyzing danger-flutter-lint-demo...  1.7s
       ],
     );
 
-    final actual = await repository.analyze();
+    final actual = await repository.analyze(directory: './');
     expect(actual, expected);
   });
 
   test('Throw ProcessException.', () async {
     when(runner.run(any)).thenThrow(const ProcessException(1));
     expect(
-      () async => await repository.analyze(),
+      () async => await repository.analyze(directory: './'),
       throwsA(TypeMatcher<ProcessException>()),
     );
   });

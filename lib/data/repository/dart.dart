@@ -10,8 +10,10 @@ class DartRepository {
     ProcessRunner runner = const ProcessRunner('dart'),
   }) : _runner = runner;
 
-  Future<AnalysisResults> analyze() async {
-    final result = await _runner.run(['analyze', '--format=json']);
+  Future<AnalysisResults> analyze({
+    required String directory,
+  }) async {
+    final result = await _runner.run(['analyze', '--format=json', directory]);
 
     final jsonStart = result.indexOf('{');
     final jsonEnd = result.lastIndexOf('}');
