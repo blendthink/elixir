@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:sign/data/model/analysis.dart';
 import 'package:sign/data/source/process.dart';
 
 class DartRepository {
@@ -7,7 +10,8 @@ class DartRepository {
     ProcessRunner runner = const ProcessRunner('dart'),
   }) : _runner = runner;
 
-  Future<String> analyze() async {
-    return await _runner.run(['analyze']);
+  Future<AnalysisResults> analyze() async {
+    final result = await _runner.run(['analyze', '--format=json']);
+    return AnalysisResults.fromJson(jsonDecode(result));
   }
 }
