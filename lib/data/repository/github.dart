@@ -42,4 +42,40 @@ class GitHubRepository {
     return (jsonDecode(result) as List)
         .map((json) => ReviewComment.fromJson(json));
   }
+
+  /// gh api \
+  ///   --method POST \
+  ///   -H "Accept: application/vnd.github.v3+json" \
+  ///   /repos/{repo}/pulls/{num}/comments \
+  ///   -f body={body} \
+  ///   -f commit_id={commitId} \
+  ///   -f path={path} \
+  ///   -F line={line}
+  Future<ReviewComment> createReviewComment({
+    required String repo,
+    required int num,
+    required String body,
+    required String commitId,
+    required String path,
+    required int line,
+  }) async {
+    final result = await _runner.run([
+      'api',
+      '--method',
+      'POST',
+      '-H',
+      'Accept: application/vnd.github.v3+json',
+      '/repos/$repo/pulls/$num/comments',
+      '-f',
+      'body=$body',
+      '-f',
+      'commit_id=$commitId',
+      '-f',
+      'path=$path',
+      '-F',
+      'line=$line',
+    ]);
+
+    return ReviewComment.fromJson(jsonDecode(result));
+  }
 }
