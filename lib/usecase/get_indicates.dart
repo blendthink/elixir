@@ -22,6 +22,7 @@ class GetIndicatesUseCase {
     final result = await _dartRepository.analyze();
 
     final indicates = await Future.wait(result.diagnostics.map((diag) async {
+      // If severity is none, then it is excluded from the list.
       if (diag.severity == DiagnosticSeverity.none) return null;
 
       final body = diag.body;
@@ -34,6 +35,9 @@ class GetIndicatesUseCase {
         path: path,
         line: line,
       );
+
+      // If there are no commits between {base} and {head}, then the commit id is empty.
+      // In this case, it is excluded from the list.
       if (commitId.isEmpty) return null;
 
       return Indicate(body: body, commitId: commitId, path: path, line: line);
