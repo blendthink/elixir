@@ -309,8 +309,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"
+  pubspec_builder:
+    dependency: "direct dev"
+    description:
+      name: pubspec_builder
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   pubspec_parse:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: pubspec_parse
       url: "https://pub.dartlang.org"

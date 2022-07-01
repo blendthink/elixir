@@ -1,4 +1,8 @@
-name: sign
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+import 'package:pubspec_parse/pubspec_parse.dart';
+
+final pubspec = Pubspec.parse("""name: sign
 description: A sample command-line application.
 version: 1.0.0
 homepage: https://github.com/blendthink/sign
@@ -17,7 +21,6 @@ dependencies:
   freezed_annotation: ^2.0.3
   json_serializable: ^6.2.0
   path: ^1.8.2
-  pubspec_parse: ^1.2.0
 
 dev_dependencies:
   build_runner: ^2.1.11
@@ -26,3 +29,4 @@ dev_dependencies:
   mockito: ^5.2.0
   pubspec_builder: ^1.0.0
   test: ^1.16.0
+""");
