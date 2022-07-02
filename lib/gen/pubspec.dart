@@ -2,8 +2,8 @@
 
 import 'package:pubspec_parse/pubspec_parse.dart';
 
-final pubspec = Pubspec.parse("""name: sign
-description: A sample command-line application.
+final pubspec = Pubspec.parse("""name: signpost
+description: Tool for commenting `dart analyze` results to GitHub PullRequest.
 version: 1.0.0
 homepage: https://github.com/blendthink/sign
 repository: https://github.com/blendthink/sign
@@ -11,7 +11,7 @@ documentation: https://github.com/blendthink/sign
 issue_tracker: https://github.com/blendthink/sign/issues
 
 executables:
-  sign:
+  signpost:
 
 environment:
   sdk: '>=2.17.5 <3.0.0'
@@ -21,6 +21,7 @@ dependencies:
   freezed_annotation: ^2.0.3
   json_serializable: ^6.2.0
   path: ^1.8.2
+  pubspec_parse: ^1.2.0
 
 dev_dependencies:
   build_runner: ^2.1.11
