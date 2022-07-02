@@ -53,7 +53,7 @@ class RunCommand extends Command<dynamic> {
     final dir = DirOption.dir(argResults, usageException);
 
     final indicates = await _getIndicates(
-      dir: dir.path,
+      dir: dir,
       base: base,
       head: head,
     );

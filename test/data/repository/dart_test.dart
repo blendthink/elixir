@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:sign/data/model/analysis.dart';
@@ -11,6 +13,7 @@ import 'dart_test.mocks.dart';
 Future<void> main() async {
   final runner = MockProcessRunner();
   final repository = DartRepository(runner: runner);
+  final dir = Directory('./');
 
   test('Diagnostics is empty.', () async {
     when(runner.run(any)).thenAnswer((_) async => '''
@@ -22,7 +25,7 @@ No issues found!''');
       diagnostics: <Diagnostic>[],
     );
 
-    final actual = await repository.analyze(dir: './');
+    final actual = await repository.analyze(dir: dir);
     expect(actual, expected);
   });
 
@@ -54,7 +57,7 @@ Analyzing danger-flutter-lint-demo...  1.7s
       ],
     );
 
-    final actual = await repository.analyze(dir: './');
+    final actual = await repository.analyze(dir: dir);
     expect(actual, expected);
   });
 
@@ -116,14 +119,14 @@ Analyzing danger-flutter-lint-demo...  1.7s
       ],
     );
 
-    final actual = await repository.analyze(dir: './');
+    final actual = await repository.analyze(dir: dir);
     expect(actual, expected);
   });
 
   test('Throw ProcessException.', () async {
     when(runner.run(any)).thenThrow(const ProcessException(1));
     expect(
-      () async => await repository.analyze(dir: './'),
+      () async => await repository.analyze(dir: dir),
       throwsA(TypeMatcher<ProcessException>()),
     );
   });

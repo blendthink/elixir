@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:path/path.dart' as p;
 import 'package:sign/data/model/analysis.dart';
 import 'package:sign/data/model/indicate.dart';
@@ -16,7 +18,7 @@ class GetIndicatesUseCase {
         _gitRepository = gitRepository;
 
   Future<Iterable<Indicate>> call({
-    required String dir,
+    required Directory dir,
     required String base,
     required String head,
   }) async {

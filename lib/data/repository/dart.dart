@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:sign/data/model/analysis.dart';
 import 'package:sign/data/source/process.dart';
@@ -11,9 +12,9 @@ class DartRepository {
   }) : _runner = runner;
 
   Future<AnalysisResults> analyze({
-    required String dir,
+    required Directory dir,
   }) async {
-    final result = await _runner.run(['analyze', '--format=json', dir]);
+    final result = await _runner.run(['analyze', '--format=json', dir.path]);
 
     final jsonStart = result.indexOf('{');
     final jsonEnd = result.lastIndexOf('}');
