@@ -6,7 +6,7 @@ class Log {
 An unexpected error occurred.
 Consider creating an issue on https://github.com/blendthink/elixir/issues/new.
 
-$o''' ;
+$o''';
     print('\x1B[31m$message\x1B[0m');
   }
 }
