@@ -23,7 +23,7 @@ mixin _$ReviewComment {
   String get path => throw _privateConstructorUsedError;
   String get originalCommitId => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
-  int get line => throw _privateConstructorUsedError;
+  int? get line => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $ReviewCommentCopyWith<$Res> {
   factory $ReviewCommentCopyWith(
           ReviewComment value, $Res Function(ReviewComment) then) =
       _$ReviewCommentCopyWithImpl<$Res>;
-  $Res call({String path, String originalCommitId, String body, int line});
+  $Res call({String path, String originalCommitId, String body, int? line});
 }
 
 /// @nodoc
@@ -71,7 +71,7 @@ class _$ReviewCommentCopyWithImpl<$Res>
       line: line == freezed
           ? _value.line
           : line // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -83,7 +83,7 @@ abstract class _$$_ReviewCommentCopyWith<$Res>
           _$_ReviewComment value, $Res Function(_$_ReviewComment) then) =
       __$$_ReviewCommentCopyWithImpl<$Res>;
   @override
-  $Res call({String path, String originalCommitId, String body, int line});
+  $Res call({String path, String originalCommitId, String body, int? line});
 }
 
 /// @nodoc
@@ -120,7 +120,7 @@ class __$$_ReviewCommentCopyWithImpl<$Res>
       line: line == freezed
           ? _value.line
           : line // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -133,7 +133,7 @@ class _$_ReviewComment implements _ReviewComment {
       {required this.path,
       required this.originalCommitId,
       required this.body,
-      required this.line});
+      this.line});
 
   factory _$_ReviewComment.fromJson(Map<String, dynamic> json) =>
       _$$_ReviewCommentFromJson(json);
@@ -145,7 +145,7 @@ class _$_ReviewComment implements _ReviewComment {
   @override
   final String body;
   @override
-  final int line;
+  final int? line;
 
   @override
   String toString() {
@@ -189,7 +189,7 @@ abstract class _ReviewComment implements ReviewComment {
       {required final String path,
       required final String originalCommitId,
       required final String body,
-      required final int line}) = _$_ReviewComment;
+      final int? line}) = _$_ReviewComment;
 
   factory _ReviewComment.fromJson(Map<String, dynamic> json) =
       _$_ReviewComment.fromJson;
@@ -201,7 +201,7 @@ abstract class _ReviewComment implements ReviewComment {
   @override
   String get body => throw _privateConstructorUsedError;
   @override
-  int get line => throw _privateConstructorUsedError;
+  int? get line => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_ReviewCommentCopyWith<_$_ReviewComment> get copyWith =>

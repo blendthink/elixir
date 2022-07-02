@@ -11,7 +11,7 @@ class ReviewComment with _$ReviewComment {
     required String path,
     required String originalCommitId,
     required String body,
-    required int line,
+    int? line,
   }) = _ReviewComment;
 
   factory ReviewComment.fromJson(Map<String, dynamic> json) =>
