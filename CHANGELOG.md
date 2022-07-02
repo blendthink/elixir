@@ -1,3 +1,14 @@
+## 1.0.6
+
+### Fixed
+
+- Fixed `ReviewComment` `line` to nullable.
+- Fixed to not use `hashCode` to determine equivalence.
+
+### Improved
+
+- If no issues found, we tried to avoid running unnecessary processes and to output the appropriate logs.
+
 ## 1.0.5
 
 ### Fixed
