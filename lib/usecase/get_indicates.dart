@@ -1,5 +1,7 @@
+import 'dart:convert';
 import 'dart:io';
 
+import 'package:crypto/crypto.dart';
 import 'package:path/path.dart' as p;
 import 'package:elixir/data/model/analysis.dart';
 import 'package:elixir/data/model/indicate.dart';
@@ -44,7 +46,7 @@ class GetIndicatesUseCase {
       if (commitId.isEmpty) return null;
 
       return Indicate(
-        diagHashCode: diag.hashCode,
+        diagHash: diag.sha,
         body: body,
         commitId: commitId,
         path: path,
@@ -70,9 +72,14 @@ extension DiagnosticExt on Diagnostic {
     }
   }
 
+  String get sha {
+    final json = jsonEncode(toJson());
+    return sha256.convert(utf8.encode(json)).toString();
+  }
+
   String get body => '''
 <!--
-hashCode: $hashCode
+hash: $sha
 generatedBy: Elixir
 -->
 > $_title `$code`

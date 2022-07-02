@@ -7,7 +7,7 @@ part 'indicate.g.dart';
 @freezed
 abstract class Indicate with _$Indicate {
   const factory Indicate({
-    required int diagHashCode,
+    required String diagHash,
     required String body,
     required String commitId,
     required String path,

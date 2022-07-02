@@ -9,7 +9,7 @@ part of 'indicate.dart';
 // **************************************************************************
 
 _$_Indicate _$$_IndicateFromJson(Map<String, dynamic> json) => _$_Indicate(
-      diagHashCode: json['diagHashCode'] as int,
+      diagHash: json['diagHash'] as String,
       body: json['body'] as String,
       commitId: json['commitId'] as String,
       path: json['path'] as String,
@@ -18,7 +18,7 @@ _$_Indicate _$$_IndicateFromJson(Map<String, dynamic> json) => _$_Indicate(
 
 Map<String, dynamic> _$$_IndicateToJson(_$_Indicate instance) =>
     <String, dynamic>{
-      'diagHashCode': instance.diagHashCode,
+      'diagHash': instance.diagHash,
       'body': instance.body,
       'commitId': instance.commitId,
       'path': instance.path,
