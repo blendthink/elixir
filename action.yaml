@@ -18,9 +18,19 @@ inputs:
 runs:
   using: composite
   steps:
-    - shell: bash
+    - name: Fetch branches
+      shell: bash
       run: |
-        dart pub global activate elixir
+        git fetch origin ${{ github.base_ref }}
+        git fetch origin ${{ github.head_ref }}
+
+    - name: Active elixir
+      shell: bash
+      run: dart pub global activate elixir
+
+    - name: Run elixir
+      shell: bash
+      run: |
         elixir run \
           --repo=${{ github.repository }} \
           --num=${{ github.event.pull_request.number }} \
