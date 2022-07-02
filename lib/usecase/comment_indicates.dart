@@ -14,8 +14,10 @@ class CommentIndicatesUseCase {
     required int num,
     required Iterable<Indicate> indicates,
   }) async {
-    return await Future.wait(indicates.map((indicate) async {
-      return await _gitHubRepository.createReviewComment(
+    final comments = <ReviewComment>[];
+
+    for (final indicate in indicates) {
+      final comment = await _gitHubRepository.createReviewComment(
         repo: repo,
         num: num,
         body: indicate.body,
@@ -23,6 +25,10 @@ class CommentIndicatesUseCase {
         path: indicate.path,
         line: indicate.line,
       );
-    }));
+      comments.add(comment);
+      await Future.delayed(Duration(seconds: 10));
+    }
+
+    return comments;
   }
 }
