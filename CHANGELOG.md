@@ -1,3 +1,9 @@
+## 1.0.5
+
+### Fixed
+
+- Fixed to filter comments by `diagHashCode` to see if they are identical.
+
 ## 1.0.4
 
 ### Fixed
