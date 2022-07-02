@@ -1,1 +1,3 @@
-void main() {}
+void info() {
+  final unused = '';
+}
