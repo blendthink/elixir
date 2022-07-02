@@ -1,3 +1,8 @@
 analyzer:
   errors:
     demo: warning
+    avoid_returning_null_for_void: error
+
+linter:
+  rules:
+    avoid_returning_null_for_void: true
