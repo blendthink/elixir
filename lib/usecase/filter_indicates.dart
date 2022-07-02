@@ -25,7 +25,7 @@ class FilterIndicatesUseCase {
           comment.originalCommitId == indicate.commitId &&
           comment.path == indicate.path &&
           comment.line == indicate.line &&
-          comment.body.contains('hashCode: ${indicates.hashCode}'));
+          comment.body.contains('hashCode: ${indicate.diagHashCode}'));
     });
   }
 }
