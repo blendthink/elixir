@@ -16,6 +16,7 @@ class CommentIndicatesUseCase {
   }) async {
     final comments = <ReviewComment>[];
 
+    // TODO: use https://docs.github.com/ja/rest/pulls/reviews#create-a-review-for-a-pull-request
     for (final indicate in indicates) {
       final comment = await _gitHubRepository.createReviewComment(
         repo: repo,
