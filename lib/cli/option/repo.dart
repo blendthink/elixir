@@ -17,7 +17,7 @@ class RepoOption extends Option {
     ArgResults argResults,
     Never Function(String message) usageException,
   ) {
-    final repo = argResults.requireParam<String>(_name);
+    final repo = argResults.requireParam(_name);
     if (!RegExp(r'^.+/.+').hasMatch(repo)) {
       usageException('repo is not GitHub Repository: $repo');
     }

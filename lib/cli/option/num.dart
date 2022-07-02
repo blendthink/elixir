@@ -17,10 +17,11 @@ class NumOption extends Option {
     ArgResults argResults,
     Never Function(String message) usageException,
   ) {
-    final num = argResults.requireParam<int>(_name);
-    if (num <= 0) {
+    final num = argResults.requireParam(_name);
+    final numInt = int.parse(num);
+    if (numInt <= 0) {
       usageException('num is not a natural number: $num');
     }
-    return num;
+    return numInt;
   }
 }

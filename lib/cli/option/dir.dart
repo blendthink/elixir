@@ -19,7 +19,7 @@ class DirOption extends Option {
     ArgResults argResults,
     Never Function(String message) usageException,
   ) {
-    final path = argResults.requireParam<String>(_name);
+    final path = argResults.requireParam(_name);
     final dir = Directory(path);
     if (!dir.existsSync()) {
       usageException('Not found directory: $path');

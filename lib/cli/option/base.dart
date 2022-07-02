@@ -17,7 +17,7 @@ class BaseOption extends Option {
     ArgResults argResults,
     Never Function(String message) usageException,
   ) {
-    final base = argResults.requireParam<String>(_name);
+    final base = argResults.requireParam(_name);
     if (base.isEmpty) {
       usageException('base is empty');
     }

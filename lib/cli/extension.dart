@@ -3,14 +3,13 @@ import 'package:args/args.dart' show ArgResults, ArgParser;
 import 'package:elixir/cli/option.dart';
 
 extension ArgResultsExt on ArgResults {
-  T requireParam<T>(String name) {
-    final p = optionalParam<T>(name);
+  String requireParam(String name) {
+    final p = optionalParam(name);
     if (p == null) throw ArgumentError();
     return p;
   }
 
-  T? optionalParam<T>(String name) =>
-      this[name] is T ? (this[name] as T) : null;
+  String? optionalParam(String name) => this[name];
 }
 
 extension ArgParserExt on ArgParser {

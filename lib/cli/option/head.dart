@@ -17,7 +17,7 @@ class HeadOption extends Option {
     ArgResults argResults,
     Never Function(String message) usageException,
   ) {
-    final head = argResults.requireParam<String>(_name);
+    final head = argResults.requireParam(_name);
     if (head.isEmpty) {
       usageException('head is empty');
     }
