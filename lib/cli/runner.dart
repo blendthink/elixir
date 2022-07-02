@@ -1,8 +1,8 @@
 import 'package:args/command_runner.dart';
-import 'package:sign/cli/extension.dart';
-import 'package:sign/cli/flag/version.dart';
-import 'package:sign/gen/pubspec.dart';
-import 'package:sign/util/log.dart';
+import 'package:signpost/cli/extension.dart';
+import 'package:signpost/cli/flag/version.dart';
+import 'package:signpost/gen/pubspec.dart';
+import 'package:signpost/util/log.dart';
 
 class SignCommandRunner extends CommandRunner {
   SignCommandRunner()

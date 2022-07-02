@@ -1,5 +1,5 @@
-import 'package:sign/data/model/indicate.dart';
-import 'package:sign/data/repository/github.dart';
+import 'package:signpost/data/model/indicate.dart';
+import 'package:signpost/data/repository/github.dart';
 
 class FilterIndicatesUseCase {
   final GitHubRepository _gitHubRepository;

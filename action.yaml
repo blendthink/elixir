@@ -1,4 +1,4 @@
-name: 'sign'
+name: 'signpost'
 author: 'blendthink'
 description: 'Tool for commenting `dart analyze` results to GitHub PullRequest.'
 branding:

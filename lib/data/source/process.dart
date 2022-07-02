@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:sign/util/log.dart';
+import 'package:signpost/util/log.dart';
 
 class ProcessRunner {
   final String _executable;

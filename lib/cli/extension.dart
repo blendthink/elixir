@@ -1,6 +1,6 @@
 import 'package:args/args.dart' show ArgResults, ArgParser;
 
-import 'package:sign/cli/option.dart';
+import 'package:signpost/cli/option.dart';
 
 extension ArgResultsExt on ArgResults {
   T requireParam<T>(String name) {

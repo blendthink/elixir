@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:sign/data/model/analysis.dart';
-import 'package:sign/data/source/process.dart';
+import 'package:signpost/data/model/analysis.dart';
+import 'package:signpost/data/source/process.dart';
 
 class DartRepository {
   final ProcessRunner _runner;

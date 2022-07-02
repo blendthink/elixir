@@ -1,4 +1,4 @@
-import 'package:sign/data/source/process.dart';
+import 'package:signpost/data/source/process.dart';
 
 class GitRepository {
   final ProcessRunner _runner;

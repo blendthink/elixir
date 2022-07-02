@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:args/command_runner.dart';
-import 'package:sign/cli/runner.dart';
+import 'package:signpost/cli/runner.dart';
 
-import 'package:sign/util/log.dart';
+import 'package:signpost/util/log.dart';
 
 Future<void> run(List<String> args) async {
   final exitStatus = await _run(args);

@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:path/path.dart' as p;
-import 'package:sign/data/model/analysis.dart';
-import 'package:sign/data/model/indicate.dart';
-import 'package:sign/data/repository/dart.dart';
+import 'package:signpost/data/model/analysis.dart';
+import 'package:signpost/data/model/indicate.dart';
+import 'package:signpost/data/repository/dart.dart';
 
-import 'package:sign/data/repository/git.dart';
+import 'package:signpost/data/repository/git.dart';
 
 class GetIndicatesUseCase {
   final DartRepository _dartRepository;

@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:sign/data/model/analysis.dart';
-import 'package:sign/data/repository/dart.dart';
-import 'package:sign/data/source/process.dart';
+import 'package:signpost/data/model/analysis.dart';
+import 'package:signpost/data/repository/dart.dart';
+import 'package:signpost/data/source/process.dart';
 import 'package:test/test.dart';
 
 import 'dart_test.mocks.dart';

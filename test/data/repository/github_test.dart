@@ -1,9 +1,9 @@
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:sign/data/model/review_comment.dart';
-import 'package:sign/data/model/user.dart';
-import 'package:sign/data/repository/github.dart';
-import 'package:sign/data/source/process.dart';
+import 'package:signpost/data/model/review_comment.dart';
+import 'package:signpost/data/model/user.dart';
+import 'package:signpost/data/repository/github.dart';
+import 'package:signpost/data/source/process.dart';
 import 'package:test/test.dart';
 
 import 'github_test.mocks.dart';

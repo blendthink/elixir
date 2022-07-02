@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:sign/data/model/user.dart';
+import 'package:signpost/data/model/user.dart';
 
 part 'review_comment.freezed.dart';
 

@@ -1,5 +1,5 @@
 import 'package:args/args.dart';
-import 'package:sign/cli/option.dart';
+import 'package:signpost/cli/option.dart';
 
 class VersionFlag extends Flag {
   static const _name = 'version';

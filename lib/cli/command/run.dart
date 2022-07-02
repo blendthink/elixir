@@ -3,16 +3,16 @@ import 'dart:convert';
 
 import 'package:args/args.dart' show ArgResults;
 import 'package:args/command_runner.dart';
-import 'package:sign/cli/extension.dart';
-import 'package:sign/cli/option/base.dart';
-import 'package:sign/cli/option/dir.dart';
-import 'package:sign/cli/option/head.dart';
-import 'package:sign/cli/option/num.dart';
-import 'package:sign/cli/option/repo.dart';
-import 'package:sign/usecase/comment_indicates.dart';
-import 'package:sign/usecase/filter_indicates.dart';
-import 'package:sign/usecase/get_indicates.dart';
-import 'package:sign/util/log.dart';
+import 'package:signpost/cli/extension.dart';
+import 'package:signpost/cli/option/base.dart';
+import 'package:signpost/cli/option/dir.dart';
+import 'package:signpost/cli/option/head.dart';
+import 'package:signpost/cli/option/num.dart';
+import 'package:signpost/cli/option/repo.dart';
+import 'package:signpost/usecase/comment_indicates.dart';
+import 'package:signpost/usecase/filter_indicates.dart';
+import 'package:signpost/usecase/get_indicates.dart';
+import 'package:signpost/util/log.dart';
 
 class RunCommand extends Command<dynamic> {
   @override
