@@ -62,7 +62,6 @@ class RunCommand extends Command<dynamic> {
       num: num,
       indicates: indicates,
     );
-    log.i(_encoder.convert(filteredIndicates));
 
     final reviewComments = await _commentIndicates(
       repo: repo,
