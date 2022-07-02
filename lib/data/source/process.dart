@@ -8,8 +8,9 @@ class ProcessRunner {
   const ProcessRunner(this._executable);
 
   Future<String> run(
-    List<String> args,
-  ) async {
+    List<String> args, {
+    bool ignoreError = false,
+  }) async {
     log.i("$_executable ${args.join(' ')}");
 
     final result = await Process.run(_executable, args);
@@ -20,7 +21,7 @@ class ProcessRunner {
     if (stdout.isNotEmpty) log.i(stdout.trim());
     if (stderr.isNotEmpty) log.e(stderr);
 
-    if (result.exitCode != 0) {
+    if (result.exitCode != 0 && !ignoreError) {
       throw ProcessException(result.exitCode);
     }
 
