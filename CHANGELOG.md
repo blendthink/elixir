@@ -1,3 +1,15 @@
+## 1.0.3
+
+### Fixed
+
+- Avoided writing `${{ github.token }}` in the description of GitHub Action.
+- Added `RunCommand` in `ElixirCommandRunner`.
+- Changed head option abbr to `c`.
+- Fixed String to int cast failure.
+- Fixed ignore analyze error.
+- Fixed `grep` command failure.
+- Use `original_commit_id` instead of `commit_id`.
+
 ## 1.0.2
 
 ### Fixed
