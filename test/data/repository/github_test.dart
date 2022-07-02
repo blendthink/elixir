@@ -41,7 +41,7 @@ Future<void> main() async {
       final expected = [
         ReviewComment(
           path: 'file1.txt',
-          commitId: '6dcb09b5b57875f334f61aebed695e2e4193db5e',
+          originalCommitId: '6dcb09b5b57875f334f61aebed695e2e4193db5e',
           user: User(login: 'octocat', id: 1),
           body: 'Great stuff!',
           line: 2,
@@ -70,7 +70,7 @@ Future<void> main() async {
 
       final expected = ReviewComment(
         path: 'file1.txt',
-        commitId: '6dcb09b5b57875f334f61aebed695e2e4193db5e',
+        originalCommitId: '6dcb09b5b57875f334f61aebed695e2e4193db5e',
         user: User(login: 'octocat', id: 1),
         body: 'Great stuff!',
         line: 2,
