@@ -1,3 +1,9 @@
+## 1.0.4
+
+### Fixed
+
+- Fixed filter by elixir on whether the comment is a comment or not.
+
 ## 1.0.3
 
 ### Fixed
