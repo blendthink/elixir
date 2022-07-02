@@ -34,8 +34,8 @@ runs:
         elixir run \
           --repo=${{ github.repository }} \
           --num=${{ github.event.pull_request.number }} \
-          --base=${{ github.base_ref }} \
-          --head=${{ github.head_ref }} \
+          --base=origin/${{ github.base_ref }} \
+          --head=origin/${{ github.head_ref }} \
           --dir=${{ inputs.dir }}
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
