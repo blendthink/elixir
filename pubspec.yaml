@@ -1,6 +1,6 @@
 name: elixir
 description: Tool for commenting `dart analyze` results to GitHub PullRequest.
-version: 1.0.4
+version: 1.0.5
 homepage: https://github.com/blendthink/elixir
 repository: https://github.com/blendthink/elixir
 documentation: https://github.com/blendthink/elixir
