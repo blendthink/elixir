@@ -6,27 +6,26 @@ branding:
   color: blue
 
 inputs:
-  aaa:
-    description: ''
-    required: true
-    default: ''
-  bbb:
-    description: ''
-    required: true
-    default: ''
-
-outputs:
-  ccc:
-    value: ''
-    description: ''
+  token:
+    description: 'GITHUB_TOKEN or a `repo` scoped Personal Access Token (PAT). defaults to `${{ github.token }}`.'
+    required: false
+    default: ${{ github.token }}
+  dir:
+    description: 'Directory to run the Dart analyzer. defaults to `./`.'
+    required: false
+    default: ./
 
 runs:
   using: composite
   steps:
-    - name: aaa
-      shell: bash
+    - shell: bash
       run: |
-
-    - name: bbb
-      shell: bash
-      run: |
+        dart pub global activate signpost
+        signpost run \
+          --repo=${{ github.repository }} \
+          --num=${{ github.event.pull_request.number }} \
+          --base=${{ github.base_ref }} \
+          --head=${{ github.head_ref }} \
+          --dir=${{ inputs.dir }}
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
