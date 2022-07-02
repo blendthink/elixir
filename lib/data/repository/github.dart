@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:elixir/data/model/review_comment.dart';
-import 'package:elixir/data/model/user.dart';
 import 'package:elixir/data/source/process.dart';
 
 class GitHubRepository {
@@ -10,20 +9,6 @@ class GitHubRepository {
   const GitHubRepository({
     ProcessRunner runner = const ProcessRunner('gh'),
   }) : _runner = runner;
-
-  /// gh api \
-  ///   -H "Accept: application/vnd.github.v3+json" \
-  ///   /user
-  Future<User> getUser() async {
-    final result = await _runner.run([
-      'api',
-      '-H',
-      'Accept: application/vnd.github.v3+json',
-      '/user',
-    ]);
-
-    return User.fromJson(jsonDecode(result));
-  }
 
   /// gh api \
   ///   -H "Accept: application/vnd.github.v3+json" \

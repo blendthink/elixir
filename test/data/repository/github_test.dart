@@ -1,7 +1,6 @@
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:elixir/data/model/review_comment.dart';
-import 'package:elixir/data/model/user.dart';
 import 'package:elixir/data/repository/github.dart';
 import 'package:elixir/data/source/process.dart';
 import 'package:test/test.dart';
@@ -13,26 +12,6 @@ Future<void> main() async {
   final runner = MockProcessRunner();
   final repository = GitHubRepository(runner: runner);
 
-  group('getUser', () {
-    test('User is octocat.', () async {
-      when(runner.run(any)).thenAnswer((_) async =>
-          '''{"login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https://github.com/images/error/octocat_happy.gif","gravatar_id":"","url":"https://api.github.com/users/octocat","html_url":"https://github.com/octocat","followers_url":"https://api.github.com/users/octocat/followers","following_url":"https://api.github.com/users/octocat/following{/other_user}","gists_url":"https://api.github.com/users/octocat/gists{/gist_id}","starred_url":"https://api.github.com/users/octocat/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/octocat/subscriptions","organizations_url":"https://api.github.com/users/octocat/orgs","repos_url":"https://api.github.com/users/octocat/repos","events_url":"https://api.github.com/users/octocat/events{/privacy}","received_events_url":"https://api.github.com/users/octocat/received_events","type":"User","site_admin":false,"name":"monalisa octocat","company":"GitHub","blog":"https://github.com/blog","location":"San Francisco","email":"octocat@github.com","hireable":false,"bio":"There once was...","twitter_username":"monatheoctocat","public_repos":2,"public_gists":1,"followers":20,"following":0,"created_at":"2008-01-14T04:33:35Z","updated_at":"2008-01-14T04:33:35Z","private_gists":81,"total_private_repos":100,"owned_private_repos":100,"disk_usage":10000,"collaborators":8,"two_factor_authentication":true,"plan":{"name":"Medium","space":400,"private_repos":20,"collaborators":0}}''');
-
-      final expected = User(login: 'octocat', id: 1);
-
-      final actual = await repository.getUser();
-      expect(actual, expected);
-    });
-
-    test('Throw ProcessException.', () async {
-      when(runner.run(any)).thenThrow(const ProcessException(1));
-      expect(
-        () async => await repository.getUser(),
-        throwsA(TypeMatcher<ProcessException>()),
-      );
-    });
-  });
-
   group('getReviewComments', () {
     test('One review comment exists.', () async {
       when(runner.run(any)).thenAnswer((_) async =>
@@ -41,8 +20,7 @@ Future<void> main() async {
       final expected = [
         ReviewComment(
           path: 'file1.txt',
-          originalCommitId: '6dcb09b5b57875f334f61aebed695e2e4193db5e',
-          user: User(login: 'octocat', id: 1),
+          originalCommitId: '9c48853fa3dc5c1c3d6f1f1cd1f2743e72652840',
           body: 'Great stuff!',
           line: 2,
         ),
@@ -70,8 +48,7 @@ Future<void> main() async {
 
       final expected = ReviewComment(
         path: 'file1.txt',
-        originalCommitId: '6dcb09b5b57875f334f61aebed695e2e4193db5e',
-        user: User(login: 'octocat', id: 1),
+        originalCommitId: '9c48853fa3dc5c1c3d6f1f1cd1f2743e72652840',
         body: 'Great stuff!',
         line: 2,
       );
@@ -80,7 +57,7 @@ Future<void> main() async {
         repo: 'octocat/Hello-World',
         num: 1,
         body: 'Great stuff!',
-        commitId: '6dcb09b5b57875f334f61aebed695e2e4193db5e',
+        commitId: '9c48853fa3dc5c1c3d6f1f1cd1f2743e72652840',
         path: 'file1.txt',
         line: 2,
       );
@@ -94,7 +71,7 @@ Future<void> main() async {
           repo: 'octocat/Hello-World',
           num: 1,
           body: 'Great stuff!',
-          commitId: '6dcb09b5b57875f334f61aebed695e2e4193db5e',
+          commitId: '9c48853fa3dc5c1c3d6f1f1cd1f2743e72652840',
           path: 'file1.txt',
           line: 2,
         ),

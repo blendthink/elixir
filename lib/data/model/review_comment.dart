@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:elixir/data/model/user.dart';
 
 part 'review_comment.freezed.dart';
 
@@ -11,7 +10,6 @@ class ReviewComment with _$ReviewComment {
   const factory ReviewComment({
     required String path,
     required String originalCommitId,
-    required User user,
     required String body,
     required int line,
   }) = _ReviewComment;

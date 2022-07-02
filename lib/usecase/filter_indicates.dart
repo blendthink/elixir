@@ -13,20 +13,19 @@ class FilterIndicatesUseCase {
     required int num,
     required Iterable<Indicate> indicates,
   }) async {
-    final user = await _gitHubRepository.getUser();
     final comments =
         await _gitHubRepository.getReviewComments(repo: repo, num: num);
 
-    final userComments =
-        comments.where((comment) => comment.user.id == user.id);
+    final elixirComments = comments
+        .where((comment) => comment.body.contains('generatedBy: Elixir'));
 
     return indicates.where((indicate) {
       // If commitId, path, line, and body are all the same, then it is excluded from the list.
-      return !userComments.any((comment) =>
+      return !elixirComments.any((comment) =>
           comment.originalCommitId == indicate.commitId &&
           comment.path == indicate.path &&
           comment.line == indicate.line &&
-          comment.body == indicate.body);
+          comment.body.contains('hashCode: ${indicates.hashCode}'));
     });
   }
 }
