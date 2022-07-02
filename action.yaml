@@ -11,7 +11,7 @@ inputs:
     required: false
     default: ${{ github.token }}
   dir:
-    description: 'Directory to run the Dart analyzer. defaults to `./`.'
+    description: 'Directory to run the `dart analyze`. defaults to `./`.'
     required: false
     default: ./
 
