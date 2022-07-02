@@ -1,8 +1,8 @@
-[![Pub Version](https://badgen.net/pub/v/signpost)](https://pub.dev/packages/signpost/)
-[![Dart SDK Version](https://badgen.net/pub/sdk-version/signpost)](https://pub.dev/packages/signpost/)
-[![Pub popularity](https://badgen.net/pub/popularity/signpost)](https://pub.dev/packages/signpost/score)
+[![Pub Version](https://badgen.net/pub/v/elixir)](https://pub.dev/packages/elixir/)
+[![Dart SDK Version](https://badgen.net/pub/sdk-version/elixir)](https://pub.dev/packages/elixir/)
+[![Pub popularity](https://badgen.net/pub/popularity/elixir)](https://pub.dev/packages/elixir/score)
 
-# Signpost
+# Elixir
 
 A command-line tool for commenting `dart analyze` results to GitHub PullRequest.
 
@@ -23,14 +23,14 @@ https://github.com/cli/cli#installation
 ### 3. Active package
 
 ```shell
-dart pub global activate signpost
+dart pub global activate elixir
 ```
 
 ### 4. Run package
 
 ```shell
 cd {git-repository-path}
-signpost run \
+elixir run \
   --repo={repo} \
   --num={num} \
   --base={base} \

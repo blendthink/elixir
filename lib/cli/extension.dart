@@ -1,6 +1,6 @@
 import 'package:args/args.dart' show ArgResults, ArgParser;
 
-import 'package:signpost/cli/option.dart';
+import 'package:elixir/cli/option.dart';
 
 extension ArgResultsExt on ArgResults {
   T requireParam<T>(String name) {

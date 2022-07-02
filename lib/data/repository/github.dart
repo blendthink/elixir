@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:signpost/data/model/review_comment.dart';
-import 'package:signpost/data/model/user.dart';
-import 'package:signpost/data/source/process.dart';
+import 'package:elixir/data/model/review_comment.dart';
+import 'package:elixir/data/model/user.dart';
+import 'package:elixir/data/source/process.dart';
 
 class GitHubRepository {
   final ProcessRunner _runner;

@@ -1,4 +1,4 @@
-name: 'signpost'
+name: 'elixir'
 author: 'blendthink'
 description: 'Tool for commenting `dart analyze` results to GitHub PullRequest.'
 branding:
@@ -20,8 +20,8 @@ runs:
   steps:
     - shell: bash
       run: |
-        dart pub global activate signpost
-        signpost run \
+        dart pub global activate elixir
+        elixir run \
           --repo=${{ github.repository }} \
           --num=${{ github.event.pull_request.number }} \
           --base=${{ github.base_ref }} \
