@@ -1,4 +1,5 @@
 import 'package:args/command_runner.dart';
+import 'package:elixir/cli/command/run.dart';
 import 'package:elixir/cli/extension.dart';
 import 'package:elixir/cli/flag/version.dart';
 import 'package:elixir/gen/pubspec.dart';
@@ -13,6 +14,7 @@ class ElixirCommandRunner extends CommandRunner {
     argParser.addFlags([
       VersionFlag(),
     ]);
+    addCommand(RunCommand());
   }
 
   @override
