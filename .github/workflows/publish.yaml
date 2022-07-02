@@ -21,3 +21,10 @@ jobs:
           PUB_CREDENTIALS: ${{ secrets.PUB_CREDENTIALS }}
       - name: publish
         run: dart pub publish --force
+      - name: push tag
+        run: |
+          HEAD_REF="${{ github.head_ref }}"
+          # release/v1.0.0 → v1.0.0
+          TAG_NAME="${HEAD_REF/release\//}"
+          git tag $TAG_NAME
+          git push origin $TAG_NAME
