@@ -13,7 +13,7 @@ _$_ReviewComment _$$_ReviewCommentFromJson(Map<String, dynamic> json) =>
       path: json['path'] as String,
       originalCommitId: json['original_commit_id'] as String,
       body: json['body'] as String,
-      line: json['line'] as int,
+      line: json['line'] as int?,
     );
 
 Map<String, dynamic> _$$_ReviewCommentToJson(_$_ReviewComment instance) =>

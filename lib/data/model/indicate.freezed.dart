@@ -20,7 +20,7 @@ Indicate _$IndicateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Indicate {
-  int get diagHashCode => throw _privateConstructorUsedError;
+  String get diagHash => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
   String get commitId => throw _privateConstructorUsedError;
   String get path => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $IndicateCopyWith<$Res> {
   factory $IndicateCopyWith(Indicate value, $Res Function(Indicate) then) =
       _$IndicateCopyWithImpl<$Res>;
   $Res call(
-      {int diagHashCode, String body, String commitId, String path, int line});
+      {String diagHash, String body, String commitId, String path, int line});
 }
 
 /// @nodoc
@@ -50,17 +50,17 @@ class _$IndicateCopyWithImpl<$Res> implements $IndicateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? diagHashCode = freezed,
+    Object? diagHash = freezed,
     Object? body = freezed,
     Object? commitId = freezed,
     Object? path = freezed,
     Object? line = freezed,
   }) {
     return _then(_value.copyWith(
-      diagHashCode: diagHashCode == freezed
-          ? _value.diagHashCode
-          : diagHashCode // ignore: cast_nullable_to_non_nullable
-              as int,
+      diagHash: diagHash == freezed
+          ? _value.diagHash
+          : diagHash // ignore: cast_nullable_to_non_nullable
+              as String,
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
@@ -88,7 +88,7 @@ abstract class _$$_IndicateCopyWith<$Res> implements $IndicateCopyWith<$Res> {
       __$$_IndicateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int diagHashCode, String body, String commitId, String path, int line});
+      {String diagHash, String body, String commitId, String path, int line});
 }
 
 /// @nodoc
@@ -103,17 +103,17 @@ class __$$_IndicateCopyWithImpl<$Res> extends _$IndicateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? diagHashCode = freezed,
+    Object? diagHash = freezed,
     Object? body = freezed,
     Object? commitId = freezed,
     Object? path = freezed,
     Object? line = freezed,
   }) {
     return _then(_$_Indicate(
-      diagHashCode: diagHashCode == freezed
-          ? _value.diagHashCode
-          : diagHashCode // ignore: cast_nullable_to_non_nullable
-              as int,
+      diagHash: diagHash == freezed
+          ? _value.diagHash
+          : diagHash // ignore: cast_nullable_to_non_nullable
+              as String,
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
@@ -138,7 +138,7 @@ class __$$_IndicateCopyWithImpl<$Res> extends _$IndicateCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Indicate implements _Indicate {
   const _$_Indicate(
-      {required this.diagHashCode,
+      {required this.diagHash,
       required this.body,
       required this.commitId,
       required this.path,
@@ -148,7 +148,7 @@ class _$_Indicate implements _Indicate {
       _$$_IndicateFromJson(json);
 
   @override
-  final int diagHashCode;
+  final String diagHash;
   @override
   final String body;
   @override
@@ -160,7 +160,7 @@ class _$_Indicate implements _Indicate {
 
   @override
   String toString() {
-    return 'Indicate(diagHashCode: $diagHashCode, body: $body, commitId: $commitId, path: $path, line: $line)';
+    return 'Indicate(diagHash: $diagHash, body: $body, commitId: $commitId, path: $path, line: $line)';
   }
 
   @override
@@ -168,8 +168,7 @@ class _$_Indicate implements _Indicate {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Indicate &&
-            const DeepCollectionEquality()
-                .equals(other.diagHashCode, diagHashCode) &&
+            const DeepCollectionEquality().equals(other.diagHash, diagHash) &&
             const DeepCollectionEquality().equals(other.body, body) &&
             const DeepCollectionEquality().equals(other.commitId, commitId) &&
             const DeepCollectionEquality().equals(other.path, path) &&
@@ -180,7 +179,7 @@ class _$_Indicate implements _Indicate {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(diagHashCode),
+      const DeepCollectionEquality().hash(diagHash),
       const DeepCollectionEquality().hash(body),
       const DeepCollectionEquality().hash(commitId),
       const DeepCollectionEquality().hash(path),
@@ -199,7 +198,7 @@ class _$_Indicate implements _Indicate {
 
 abstract class _Indicate implements Indicate {
   const factory _Indicate(
-      {required final int diagHashCode,
+      {required final String diagHash,
       required final String body,
       required final String commitId,
       required final String path,
@@ -208,7 +207,7 @@ abstract class _Indicate implements Indicate {
   factory _Indicate.fromJson(Map<String, dynamic> json) = _$_Indicate.fromJson;
 
   @override
-  int get diagHashCode => throw _privateConstructorUsedError;
+  String get diagHash => throw _privateConstructorUsedError;
   @override
   String get body => throw _privateConstructorUsedError;
   @override
