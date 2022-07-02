@@ -1,6 +1,6 @@
 import 'package:args/args.dart' show ArgResults;
-import 'package:signpost/cli/extension.dart';
-import 'package:signpost/cli/option.dart';
+import 'package:elixir/cli/extension.dart';
+import 'package:elixir/cli/option.dart';
 
 class RepoOption extends Option {
   static const _name = 'repo';

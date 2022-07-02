@@ -1,13 +1,13 @@
 import 'package:args/command_runner.dart';
-import 'package:signpost/cli/extension.dart';
-import 'package:signpost/cli/flag/version.dart';
-import 'package:signpost/gen/pubspec.dart';
-import 'package:signpost/util/log.dart';
+import 'package:elixir/cli/extension.dart';
+import 'package:elixir/cli/flag/version.dart';
+import 'package:elixir/gen/pubspec.dart';
+import 'package:elixir/util/log.dart';
 
-class SignCommandRunner extends CommandRunner {
-  SignCommandRunner()
+class ElixirCommandRunner extends CommandRunner {
+  ElixirCommandRunner()
       : super(
-          'Sign',
+          'Elixir',
           'Tool for commenting `dart analyze` results to GitHub PullRequest.',
         ) {
     argParser.addFlags([

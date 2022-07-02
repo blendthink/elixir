@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:args/command_runner.dart';
-import 'package:signpost/cli/runner.dart';
+import 'package:elixir/cli/runner.dart';
 
-import 'package:signpost/util/log.dart';
+import 'package:elixir/util/log.dart';
 
 Future<void> run(List<String> args) async {
   final exitStatus = await _run(args);
@@ -12,7 +12,7 @@ Future<void> run(List<String> args) async {
 
 Future<_ExitStatus> _run(List<String> args) async {
   try {
-    await SignCommandRunner().run(args);
+    await ElixirCommandRunner().run(args);
     return _ExitStatus.success;
   } on UsageException catch (e) {
     log.w(e);

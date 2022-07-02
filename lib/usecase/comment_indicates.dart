@@ -1,6 +1,6 @@
-import 'package:signpost/data/model/indicate.dart';
-import 'package:signpost/data/model/review_comment.dart';
-import 'package:signpost/data/repository/github.dart';
+import 'package:elixir/data/model/indicate.dart';
+import 'package:elixir/data/model/review_comment.dart';
+import 'package:elixir/data/repository/github.dart';
 
 class CommentIndicatesUseCase {
   final GitHubRepository _gitHubRepository;
