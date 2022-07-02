@@ -8,7 +8,7 @@ class HeadOption extends Option {
   HeadOption()
       : super(
           _name,
-          abbr: 'h',
+          abbr: 'c',
           help: 'set pull request head',
           mandatory: true,
         );
