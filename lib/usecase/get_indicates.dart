@@ -43,7 +43,13 @@ class GetIndicatesUseCase {
       // In this case, it is excluded from the list.
       if (commitId.isEmpty) return null;
 
-      return Indicate(body: body, commitId: commitId, path: path, line: line);
+      return Indicate(
+        diagHashCode: diag.hashCode,
+        body: body,
+        commitId: commitId,
+        path: path,
+        line: line,
+      );
     }));
 
     return indicates.whereType<Indicate>();
