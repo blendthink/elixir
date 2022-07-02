@@ -1,5 +1,5 @@
 name: sign
-description: A sample command-line application.
+description: Tool for commenting `dart analyze` results to GitHub PullRequest.
 version: 1.0.0
 homepage: https://github.com/blendthink/sign
 repository: https://github.com/blendthink/sign

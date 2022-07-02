@@ -1,6 +1,6 @@
 name: 'sign'
 author: 'blendthink'
-description: ''
+description: 'Tool for commenting `dart analyze` results to GitHub PullRequest.'
 branding:
   icon: alert-circle
   color: blue
