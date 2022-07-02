@@ -26,7 +26,8 @@ class MockProcessRunner extends _i1.Mock implements _i2.ProcessRunner {
   }
 
   @override
-  _i3.Future<String> run(List<String>? args) =>
-      (super.noSuchMethod(Invocation.method(#run, [args]),
+  _i3.Future<String> run(List<String>? args, {bool? ignoreError = false}) =>
+      (super.noSuchMethod(
+          Invocation.method(#run, [args], {#ignoreError: ignoreError}),
           returnValue: Future<String>.value('')) as _i3.Future<String>);
 }
