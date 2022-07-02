@@ -57,11 +57,19 @@ class RunCommand extends Command<dynamic> {
       base: base,
       head: head,
     );
+    if (indicates.isEmpty) {
+      return;
+    }
+
     final filteredIndicates = await _filterIndicates(
       repo: repo,
       num: num,
       indicates: indicates,
     );
+    if (filteredIndicates.isEmpty) {
+      log.i('In this Pull Request ( #$num ), no issues found!');
+      return;
+    }
 
     final reviewComments = await _commentIndicates(
       repo: repo,
