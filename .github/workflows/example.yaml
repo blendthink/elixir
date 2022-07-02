@@ -1,11 +1,11 @@
-name: "analyze"
+name: "example"
 on:
   pull_request:
     paths:
       - 'example'
 
 jobs:
-  dart:
+  example:
     runs-on: ubuntu-latest
     steps:
       # https://github.com/actions/checkout
