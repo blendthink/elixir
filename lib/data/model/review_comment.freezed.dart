@@ -21,7 +21,7 @@ ReviewComment _$ReviewCommentFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ReviewComment {
   String get path => throw _privateConstructorUsedError;
-  String get commitId => throw _privateConstructorUsedError;
+  String get originalCommitId => throw _privateConstructorUsedError;
   User get user => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
   int get line => throw _privateConstructorUsedError;
@@ -37,7 +37,8 @@ abstract class $ReviewCommentCopyWith<$Res> {
   factory $ReviewCommentCopyWith(
           ReviewComment value, $Res Function(ReviewComment) then) =
       _$ReviewCommentCopyWithImpl<$Res>;
-  $Res call({String path, String commitId, User user, String body, int line});
+  $Res call(
+      {String path, String originalCommitId, User user, String body, int line});
 
   $UserCopyWith<$Res> get user;
 }
@@ -54,7 +55,7 @@ class _$ReviewCommentCopyWithImpl<$Res>
   @override
   $Res call({
     Object? path = freezed,
-    Object? commitId = freezed,
+    Object? originalCommitId = freezed,
     Object? user = freezed,
     Object? body = freezed,
     Object? line = freezed,
@@ -64,9 +65,9 @@ class _$ReviewCommentCopyWithImpl<$Res>
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String,
-      commitId: commitId == freezed
-          ? _value.commitId
-          : commitId // ignore: cast_nullable_to_non_nullable
+      originalCommitId: originalCommitId == freezed
+          ? _value.originalCommitId
+          : originalCommitId // ignore: cast_nullable_to_non_nullable
               as String,
       user: user == freezed
           ? _value.user
@@ -98,7 +99,8 @@ abstract class _$$_ReviewCommentCopyWith<$Res>
           _$_ReviewComment value, $Res Function(_$_ReviewComment) then) =
       __$$_ReviewCommentCopyWithImpl<$Res>;
   @override
-  $Res call({String path, String commitId, User user, String body, int line});
+  $Res call(
+      {String path, String originalCommitId, User user, String body, int line});
 
   @override
   $UserCopyWith<$Res> get user;
@@ -118,7 +120,7 @@ class __$$_ReviewCommentCopyWithImpl<$Res>
   @override
   $Res call({
     Object? path = freezed,
-    Object? commitId = freezed,
+    Object? originalCommitId = freezed,
     Object? user = freezed,
     Object? body = freezed,
     Object? line = freezed,
@@ -128,9 +130,9 @@ class __$$_ReviewCommentCopyWithImpl<$Res>
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String,
-      commitId: commitId == freezed
-          ? _value.commitId
-          : commitId // ignore: cast_nullable_to_non_nullable
+      originalCommitId: originalCommitId == freezed
+          ? _value.originalCommitId
+          : originalCommitId // ignore: cast_nullable_to_non_nullable
               as String,
       user: user == freezed
           ? _value.user
@@ -154,7 +156,7 @@ class __$$_ReviewCommentCopyWithImpl<$Res>
 class _$_ReviewComment implements _ReviewComment {
   const _$_ReviewComment(
       {required this.path,
-      required this.commitId,
+      required this.originalCommitId,
       required this.user,
       required this.body,
       required this.line});
@@ -165,7 +167,7 @@ class _$_ReviewComment implements _ReviewComment {
   @override
   final String path;
   @override
-  final String commitId;
+  final String originalCommitId;
   @override
   final User user;
   @override
@@ -175,7 +177,7 @@ class _$_ReviewComment implements _ReviewComment {
 
   @override
   String toString() {
-    return 'ReviewComment(path: $path, commitId: $commitId, user: $user, body: $body, line: $line)';
+    return 'ReviewComment(path: $path, originalCommitId: $originalCommitId, user: $user, body: $body, line: $line)';
   }
 
   @override
@@ -184,7 +186,8 @@ class _$_ReviewComment implements _ReviewComment {
         (other.runtimeType == runtimeType &&
             other is _$_ReviewComment &&
             const DeepCollectionEquality().equals(other.path, path) &&
-            const DeepCollectionEquality().equals(other.commitId, commitId) &&
+            const DeepCollectionEquality()
+                .equals(other.originalCommitId, originalCommitId) &&
             const DeepCollectionEquality().equals(other.user, user) &&
             const DeepCollectionEquality().equals(other.body, body) &&
             const DeepCollectionEquality().equals(other.line, line));
@@ -195,7 +198,7 @@ class _$_ReviewComment implements _ReviewComment {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(path),
-      const DeepCollectionEquality().hash(commitId),
+      const DeepCollectionEquality().hash(originalCommitId),
       const DeepCollectionEquality().hash(user),
       const DeepCollectionEquality().hash(body),
       const DeepCollectionEquality().hash(line));
@@ -214,7 +217,7 @@ class _$_ReviewComment implements _ReviewComment {
 abstract class _ReviewComment implements ReviewComment {
   const factory _ReviewComment(
       {required final String path,
-      required final String commitId,
+      required final String originalCommitId,
       required final User user,
       required final String body,
       required final int line}) = _$_ReviewComment;
@@ -225,7 +228,7 @@ abstract class _ReviewComment implements ReviewComment {
   @override
   String get path => throw _privateConstructorUsedError;
   @override
-  String get commitId => throw _privateConstructorUsedError;
+  String get originalCommitId => throw _privateConstructorUsedError;
   @override
   User get user => throw _privateConstructorUsedError;
   @override

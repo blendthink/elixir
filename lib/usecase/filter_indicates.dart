@@ -23,7 +23,7 @@ class FilterIndicatesUseCase {
     return indicates.where((indicate) {
       // If commitId, path, line, and body are all the same, then it is excluded from the list.
       return !userComments.any((comment) =>
-          comment.commitId == indicate.commitId &&
+          comment.originalCommitId == indicate.commitId &&
           comment.path == indicate.path &&
           comment.line == indicate.line &&
           comment.body == indicate.body);

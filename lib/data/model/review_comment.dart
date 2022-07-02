@@ -10,7 +10,7 @@ class ReviewComment with _$ReviewComment {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory ReviewComment({
     required String path,
-    required String commitId,
+    required String originalCommitId,
     required User user,
     required String body,
     required int line,
