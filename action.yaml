@@ -7,7 +7,7 @@ branding:
 
 inputs:
   token:
-    description: 'GITHUB_TOKEN or a `repo` scoped Personal Access Token (PAT). defaults to `${{ github.token }}`.'
+    description: 'GITHUB_TOKEN or a `repo` scoped Personal Access Token (PAT). defaults to `github.token`.'
     required: false
     default: ${{ github.token }}
   dir:
