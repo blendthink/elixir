@@ -4,7 +4,7 @@ import 'package:pubspec_parse/pubspec_parse.dart';
 
 final pubspec = Pubspec.parse("""name: elixir
 description: Tool for commenting `dart analyze` results to GitHub PullRequest.
-version: 1.0.0
+version: 1.0.2
 homepage: https://github.com/blendthink/elixir
 repository: https://github.com/blendthink/elixir
 documentation: https://github.com/blendthink/elixir

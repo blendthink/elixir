@@ -1,0 +1,18 @@
+targets:
+  $default:
+    sources:
+      exclude:
+        - "example/**"
+        - "bin/**"
+    builders:
+      source_gen|combining_builder:
+        options:
+          ignore_for_file:
+            - non_constant_identifier_names
+      json_serializable|freezed:
+        generate_for:
+          include:
+            - "lib/data/model/*.dart"
+          exclude:
+            - "lib/data/model/*.freezed.dart"
+            - "lib/data/model/*.g.dart"
