@@ -1,31 +1,26 @@
-import 'dart:convert';
 import 'dart:io';
 
-import 'package:elixir/data/model/analysis.dart';
+import 'package:elixir/data/model/analyze_result.dart';
+import 'package:elixir/data/parser/analyze_result_parser.dart';
 import 'package:elixir/data/source/process.dart';
 
-class DartRepository {
-  final ProcessRunner _runner;
+const _parser = AnalyzeResultParser();
 
+class DartRepository {
   const DartRepository({
     ProcessRunner runner = const ProcessRunner('dart'),
   }) : _runner = runner;
 
-  Future<AnalysisResults> analyze({
+  final ProcessRunner _runner;
+
+  Future<Iterable<AnalyzeResult>> analyze({
     required Directory dir,
   }) async {
     final result = await _runner.run(
-      ['analyze', '--format=json', dir.path],
+      ['analyze', '--format=machine', dir.path],
       ignoreError: true,
     );
 
-    final jsonStart = result.indexOf('{');
-    final jsonEnd = result.lastIndexOf('}');
-    if (jsonStart == -1 || jsonEnd == -1) {
-      return AnalysisResults(version: 0, diagnostics: const []);
-    }
-
-    final jsonContent = result.substring(jsonStart, jsonEnd + 1);
-    return AnalysisResults.fromJson(jsonDecode(jsonContent));
+    return result.split('\n').map(_parser.parse).whereType<AnalyzeResult>();
   }
 }

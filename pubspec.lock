@@ -226,7 +226,7 @@ packages:
     source: hosted
     version: "0.12.12"
   meta:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: meta
       url: "https://pub.dartlang.org"
@@ -450,4 +450,4 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.14.0 <3.0.0"
+  dart: ">=2.15.0 <3.0.0"
