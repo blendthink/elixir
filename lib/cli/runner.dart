@@ -2,10 +2,10 @@ import 'package:args/command_runner.dart';
 import 'package:elixir/cli/command/run.dart';
 import 'package:elixir/cli/extension.dart';
 import 'package:elixir/cli/flag/version.dart';
-import 'package:elixir/gen/pubspec.dart';
+import 'package:elixir/gen/version.dart';
 import 'package:elixir/util/log.dart';
 
-class ElixirCommandRunner extends CommandRunner {
+class ElixirCommandRunner extends CommandRunner<dynamic> {
   ElixirCommandRunner()
       : super(
           'Elixir',
@@ -18,11 +18,11 @@ class ElixirCommandRunner extends CommandRunner {
   }
 
   @override
-  Future run(Iterable<String> args) async {
+  Future<dynamic> run(Iterable<String> args) async {
     final argResults = parse(args);
 
     if (VersionFlag.enabled(argResults)) {
-      log.i(pubspec.version);
+      log.i(version);
       return;
     }
 

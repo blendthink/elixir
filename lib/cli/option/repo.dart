@@ -3,8 +3,6 @@ import 'package:elixir/cli/extension.dart';
 import 'package:elixir/cli/option.dart';
 
 class RepoOption extends Option {
-  static const _name = 'repo';
-
   RepoOption()
       : super(
           _name,
@@ -13,12 +11,14 @@ class RepoOption extends Option {
           mandatory: true,
         );
 
+  static const _name = 'repo';
+
   static String repo(
     ArgResults argResults,
     Never Function(String message) usageException,
   ) {
     final repo = argResults.requireParam(_name);
-    if (!RegExp(r'^.+/.+').hasMatch(repo)) {
+    if (!RegExp('^.+/.+').hasMatch(repo)) {
       usageException('repo is not GitHub Repository: $repo');
     }
     return repo;

@@ -15,19 +15,6 @@ import 'package:elixir/usecase/get_indicates.dart';
 import 'package:elixir/util/log.dart';
 
 class RunCommand extends Command<dynamic> {
-  @override
-  String get name => 'run';
-
-  @override
-  String get description =>
-      'Run `dart analyze` and comment on the GitHub Pull Request.';
-
-  final _encoder = JsonEncoder.withIndent('  ');
-
-  final GetIndicatesUseCase _getIndicates;
-  final FilterIndicatesUseCase _filterIndicates;
-  final CommentIndicatesUseCase _commentIndicates;
-
   RunCommand({
     GetIndicatesUseCase getIndicates = const GetIndicatesUseCase(),
     FilterIndicatesUseCase filterIndicates = const FilterIndicatesUseCase(),
@@ -43,6 +30,19 @@ class RunCommand extends Command<dynamic> {
       DirOption(),
     ]);
   }
+
+  @override
+  String get name => 'run';
+
+  @override
+  String get description =>
+      'Run `dart analyze` and comment on the GitHub Pull Request.';
+
+  final _encoder = const JsonEncoder.withIndent('  ');
+
+  final GetIndicatesUseCase _getIndicates;
+  final FilterIndicatesUseCase _filterIndicates;
+  final CommentIndicatesUseCase _commentIndicates;
 
   @override
   FutureOr<dynamic>? run() async {

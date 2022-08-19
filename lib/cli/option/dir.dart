@@ -5,8 +5,6 @@ import 'package:elixir/cli/extension.dart';
 import 'package:elixir/cli/option.dart';
 
 class DirOption extends Option {
-  static const _name = 'dir';
-
   DirOption()
       : super(
           _name,
@@ -14,6 +12,8 @@ class DirOption extends Option {
           help: 'set the directory where `dart analyze` will be run',
           mandatory: true,
         );
+
+  static const _name = 'dir';
 
   static Directory dir(
     ArgResults argResults,

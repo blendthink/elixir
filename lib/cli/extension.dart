@@ -1,15 +1,19 @@
 import 'package:args/args.dart' show ArgResults, ArgParser;
-
 import 'package:elixir/cli/option.dart';
 
 extension ArgResultsExt on ArgResults {
   String requireParam(String name) {
     final p = optionalParam(name);
-    if (p == null) throw ArgumentError();
+    if (p == null) {
+      throw ArgumentError();
+    }
     return p;
   }
 
-  String? optionalParam(String name) => this[name];
+  String? optionalParam(String name) {
+    final param = this[name];
+    return param is String ? param : null;
+  }
 }
 
 extension ArgParserExt on ArgParser {

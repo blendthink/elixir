@@ -3,8 +3,6 @@ import 'package:elixir/cli/extension.dart';
 import 'package:elixir/cli/option.dart';
 
 class NumOption extends Option {
-  static const _name = 'num';
-
   NumOption()
       : super(
           _name,
@@ -12,6 +10,8 @@ class NumOption extends Option {
           help: 'set pull request num',
           mandatory: true,
         );
+
+  static const _name = 'num';
 
   static int num(
     ArgResults argResults,
