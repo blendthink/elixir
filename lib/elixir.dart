@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:args/command_runner.dart';
 import 'package:elixir/cli/runner.dart';
-
 import 'package:elixir/util/log.dart';
 
 Future<void> run(List<String> args) async {
@@ -10,31 +9,41 @@ Future<void> run(List<String> args) async {
   await exitStatus.flushThenExit();
 }
 
-Future<_ExitStatus> _run(List<String> args) async {
+Future<ExitStatus> _run(List<String> args) async {
   try {
     await ElixirCommandRunner().run(args);
-    return _ExitStatus.success;
+    return ExitStatus.success;
   } on UsageException catch (e) {
     log.w(e);
-    return _ExitStatus.usage;
+    return ExitStatus.usage;
   } on Exception catch (e) {
     log.e(e);
-    return _ExitStatus.error;
+    return ExitStatus.error;
   }
 }
 
-enum _ExitStatus {
-  success(0),
-  usage(64),
-  error(1),
-  ;
+enum ExitStatus {
+  success,
+  usage,
+  error,
+}
 
-  final int code;
-
-  const _ExitStatus(this.code);
-
-  Future<void> flushThenExit() async {
-    return Future.wait([stdout.close(), stderr.close()])
-        .then((_) => exit(code));
+extension ExitStatusExt on ExitStatus {
+  int get code {
+    switch (this) {
+      case ExitStatus.success:
+        return 0;
+      case ExitStatus.usage:
+        return 64;
+      case ExitStatus.error:
+        return 1;
+    }
   }
+
+  Future<void> flushThenExit() async => Future.wait(
+        [
+          stdout.close(),
+          stderr.close(),
+        ],
+      ).then((_) => exit(code));
 }
