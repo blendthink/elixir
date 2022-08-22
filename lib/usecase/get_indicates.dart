@@ -43,10 +43,9 @@ class GetIndicatesUseCase {
           }
 
           return Indicate(
-            body: body,
-            commitId: commitId,
+            message: body,
             path: path,
-            line: line,
+            position: line,
           );
         },
       ),

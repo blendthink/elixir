@@ -2,8 +2,12 @@ import 'package:args/command_runner.dart';
 import 'package:elixir/cli/command/run.dart';
 import 'package:elixir/cli/extension.dart';
 import 'package:elixir/cli/flag/version.dart';
+import 'package:elixir/data/repository/github.dart';
 import 'package:elixir/gen/version.dart';
+import 'package:elixir/infra/client.dart';
+import 'package:elixir/usecase/comment_indicates.dart';
 import 'package:elixir/util/log.dart';
+import 'package:http/http.dart';
 
 class ElixirCommandRunner extends CommandRunner<dynamic> {
   ElixirCommandRunner()
@@ -14,7 +18,17 @@ class ElixirCommandRunner extends CommandRunner<dynamic> {
     argParser.addFlags([
       VersionFlag(),
     ]);
-    addCommand(RunCommand());
+
+    final client = GitHubClient(
+      client: Client(),
+      token: const String.fromEnvironment('GITHUB_TOKEN'),
+    );
+
+    final repository = GitHubRepository(client: client);
+    final commentIndicatesUseCase = CommentIndicatesUseCase(
+      gitHubRepository: repository,
+    );
+    addCommand(RunCommand(commentIndicates: commentIndicatesUseCase));
   }
 
   @override

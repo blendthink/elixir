@@ -1,66 +1,29 @@
 import 'dart:convert';
 
-import 'package:elixir/data/model/review_comment.dart';
-import 'package:elixir/data/source/process.dart';
+import 'package:elixir/data/model/comment.dart';
+import 'package:elixir/infra/client.dart';
 
 class GitHubRepository {
-  final ProcessRunner _runner;
-
   const GitHubRepository({
-    ProcessRunner runner = const ProcessRunner('gh'),
-  }) : _runner = runner;
+    required GitHubClient client,
+  }) : _client = client;
 
-  /// gh api \
-  ///   -H "Accept: application/vnd.github.v3+json" \
-  ///   /repos/{repo}/pulls/{num}/comments
-  Future<Iterable<ReviewComment>> getReviewComments({
+  final GitHubClient _client;
+
+  /// Create a review for a pull request
+  /// https://docs.github.com/en/rest/pulls/reviews#create-a-review-for-a-pull-request
+  Future<String> createReview({
     required String repo,
     required int num,
-  }) async {
-    final result = await _runner.run([
-      'api',
-      '-H',
-      'Accept: application/vnd.github.v3+json',
-      '/repos/$repo/pulls/$num/comments',
-    ]);
-
-    return (jsonDecode(result) as List)
-        .map((json) => ReviewComment.fromJson(json));
-  }
-
-  /// gh api \
-  ///   --method POST \
-  ///   -H "Accept: application/vnd.github.v3+json" \
-  ///   /repos/{repo}/pulls/{num}/comments \
-  ///   -f body={body} \
-  ///   -f commit_id={commitId} \
-  ///   -f path={path} \
-  ///   -F line={line}
-  Future<ReviewComment> createReviewComment({
-    required String repo,
-    required int num,
-    required String body,
-    required String commitId,
-    required String path,
-    required int line,
-  }) async {
-    final result = await _runner.run([
-      'api',
-      '--method',
-      'POST',
-      '-H',
-      'Accept: application/vnd.github.v3+json',
-      '/repos/$repo/pulls/$num/comments',
-      '-f',
-      'body=$body',
-      '-f',
-      'commit_id=$commitId',
-      '-f',
-      'path=$path',
-      '-F',
-      'line=$line',
-    ]);
-
-    return ReviewComment.fromJson(jsonDecode(result));
-  }
+    required int issueCount,
+    required Iterable<Comment> comments,
+  }) async =>
+      _client.postRequest(
+        path: 'repos/$repo/pulls/$num/reviews',
+        data: {
+          'body': '$issueCount issue found.',
+          'event': 'COMMENT',
+          'comments': jsonEncode(comments),
+        },
+      );
 }
