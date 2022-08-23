@@ -4,7 +4,11 @@
 
 # Elixir
 
-A command-line tool for commenting `dart analyze` results to GitHub PullRequest.
+A command-line tool for commenting `dart analyze --format=machine $dir` results to GitHub PullRequest.
+
+## Required
+
+- Dart SDK version >=2.15.0 <3.0.0
 
 ## Usage
 
@@ -26,7 +30,7 @@ jobs:
       - uses: dart-lang/setup-dart@v1
 
       # https://github.com/blendthink/elixir
-      - uses: blendthink/elixir@v1
+      - uses: blendthink/elixir@v2
         with:
           # (Optional) GITHUB_TOKEN or a `repo` scoped Personal Access Token (PAT).
           # Default: ${{ github.token }}
