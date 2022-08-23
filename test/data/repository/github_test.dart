@@ -1,3 +1,4 @@
+import 'package:elixir/data/model/exception/github.dart';
 import 'package:elixir/data/repository/github.dart';
 import 'package:elixir/infra/client.dart';
 import 'package:mockito/annotations.dart';
@@ -12,8 +13,9 @@ Future<void> main() async {
   final repository = GitHubRepository(client: client);
 
   group('createReview', () {
-    test('One review comment exists.', () async {
-      const expected = '''
+    group('Success', () {
+      test('One review comment exists.', () async {
+        const expected = '''
 {
   "id": 80,
   "node_id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3ODA=",
@@ -53,32 +55,62 @@ Future<void> main() async {
   "commit_id": "ecdd80bb57125d7ba9641ffaa4d7d2c19d3f3091",
   "author_association": "COLLABORATOR"
 }''';
-      when(client.postRequest(path: anyNamed('path'), data: anyNamed('data')))
-          .thenAnswer(
-        (_) async => expected,
-      );
-      final actual = await repository.createReview(
-        repo: 'octocat/Hello-World',
-        num: 12,
-        issueCount: 2,
-        comments: [],
-      );
-      expect(actual, expected);
-    });
-
-    test('Throw Exception.', () async {
-      final expected = Exception();
-      when(client.postRequest(path: anyNamed('path'), data: anyNamed('data')))
-          .thenThrow(expected);
-      expect(
-        () => repository.createReview(
+        when(client.postRequest(path: anyNamed('path'), data: anyNamed('data')))
+            .thenAnswer(
+          (_) async => expected,
+        );
+        final actual = await repository.createReview(
           repo: 'octocat/Hello-World',
           num: 12,
           issueCount: 2,
           comments: [],
-        ),
-        throwsException,
-      );
+        );
+        expect(actual, expected);
+      });
+    });
+    group('Failure', () {
+      test('Forbidden.', () async {
+        const expected = Forbidden();
+        when(client.postRequest(path: anyNamed('path'), data: anyNamed('data')))
+            .thenThrow(expected);
+        expect(
+          () => repository.createReview(
+            repo: 'octocat/Hello-World',
+            num: 12,
+            issueCount: 2,
+            comments: [],
+          ),
+          throwsA(expected),
+        );
+      });
+      test('Validation Failed.', () async {
+        const expected = ValidationFailed();
+        when(client.postRequest(path: anyNamed('path'), data: anyNamed('data')))
+            .thenThrow(expected);
+        expect(
+          () => repository.createReview(
+            repo: 'octocat/Hello-World',
+            num: 12,
+            issueCount: 2,
+            comments: [],
+          ),
+          throwsA(expected),
+        );
+      });
+      test('Unknown.', () async {
+        const expected = Unknown();
+        when(client.postRequest(path: anyNamed('path'), data: anyNamed('data')))
+            .thenThrow(expected);
+        expect(
+          () => repository.createReview(
+            repo: 'octocat/Hello-World',
+            num: 12,
+            issueCount: 2,
+            comments: [],
+          ),
+          throwsA(expected),
+        );
+      });
     });
   });
 }

@@ -1,3 +1,4 @@
+import 'package:elixir/data/model/exception/github.dart';
 import 'package:http/http.dart';
 
 class GitHubClient extends BaseClient {
@@ -30,11 +31,11 @@ class GitHubClient extends BaseClient {
       case 200:
         return response.body;
       case 403:
-        throw Exception();
+        throw const Forbidden();
       case 422:
-        throw Exception();
+        throw const ValidationFailed();
       default:
-        throw Exception();
+        throw const Unknown();
     }
   }
 
