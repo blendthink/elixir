@@ -37,4 +37,10 @@ class GitHubClient extends BaseClient {
         throw Exception();
     }
   }
+
+  @override
+  void close() {
+    _client.close();
+    super.close();
+  }
 }
