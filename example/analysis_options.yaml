@@ -1,7 +1,6 @@
 analyzer:
   errors:
     demo: warning
-    demo3: warning
     avoid_returning_null_for_void: error
 
 linter:
