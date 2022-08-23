@@ -13,7 +13,6 @@ linter:
     - always_use_package_imports
     - avoid_dynamic_calls
     - avoid_empty_else
-    - avoid_print
     - avoid_relative_lib_imports
     - avoid_slow_async_io
     - avoid_type_to_string
@@ -43,7 +42,6 @@ linter:
 
     # Style Rules
     - always_declare_return_types
-    - always_put_control_body_on_new_line
     - always_require_non_null_named_parameters
     - annotate_overrides
     - avoid_annotating_with_dynamic

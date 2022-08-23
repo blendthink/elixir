@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:elixir/util/log.dart';
 
 class ProcessRunner {
-  final String _executable;
-
   const ProcessRunner(this._executable);
+
+  final String _executable;
 
   Future<String> run(
     List<String> args, {
@@ -30,9 +30,9 @@ class ProcessRunner {
 }
 
 class ProcessException implements Exception {
-  final int exitCode;
-
   const ProcessException(this.exitCode);
+
+  final int exitCode;
 
   @override
   String toString() => 'failed with exit code $exitCode';
