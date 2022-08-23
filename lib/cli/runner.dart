@@ -3,7 +3,7 @@ import 'package:elixir/cli/command/run.dart';
 import 'package:elixir/cli/extension.dart';
 import 'package:elixir/cli/flag/version.dart';
 import 'package:elixir/data/repository/github.dart';
-import 'package:elixir/gen/version.dart';
+import 'package:elixir/gen/version.gen.dart';
 import 'package:elixir/infra/client.dart';
 import 'package:elixir/usecase/comment_indicates.dart';
 import 'package:elixir/util/log.dart';
@@ -36,7 +36,7 @@ class ElixirCommandRunner extends CommandRunner<dynamic> {
     final argResults = parse(args);
 
     if (VersionFlag.enabled(argResults)) {
-      log.i(version);
+      log.i(packageVersion);
       return;
     }
 
