@@ -45,6 +45,9 @@ class MockGitHubClient extends _i1.Mock implements _i3.GitHubClient {
           Invocation.method(#postRequest, [], {#path: path, #data: data}),
           returnValue: Future<String>.value('')) as _i4.Future<String>);
   @override
+  void close() => super.noSuchMethod(Invocation.method(#close, []),
+      returnValueForMissingStub: null);
+  @override
   _i4.Future<_i2.Response> head(Uri? url, {Map<String, String>? headers}) =>
       (super.noSuchMethod(Invocation.method(#head, [url], {#headers: headers}),
               returnValue: Future<_i2.Response>.value(_FakeResponse_1()))
@@ -105,7 +108,4 @@ class MockGitHubClient extends _i1.Mock implements _i3.GitHubClient {
               Invocation.method(#readBytes, [url], {#headers: headers}),
               returnValue: Future<_i6.Uint8List>.value(_i6.Uint8List(0)))
           as _i4.Future<_i6.Uint8List>);
-  @override
-  void close() => super.noSuchMethod(Invocation.method(#close, []),
-      returnValueForMissingStub: null);
 }

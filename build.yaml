@@ -9,10 +9,9 @@ targets:
         options:
           ignore_for_file:
             - non_constant_identifier_names
-      json_serializable|freezed:
+      mockito|mockBuilder:
         generate_for:
           include:
-            - "lib/data/model/*.dart"
+            - "test/**.dart"
           exclude:
-            - "lib/data/model/*.freezed.dart"
-            - "lib/data/model/*.g.dart"
+            - "test/**.mocks.dart"
