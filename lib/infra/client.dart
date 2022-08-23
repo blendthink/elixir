@@ -22,7 +22,7 @@ class GitHubClient extends BaseClient {
 
   Future<String> postRequest({
     required String path,
-    required Map<String, String> data,
+    required String data,
   }) async {
     final url = Uri.https(_authority, path);
     final response = await post(url, body: data);

@@ -17,13 +17,33 @@ class GitHubRepository {
     required int num,
     required int issueCount,
     required Iterable<Comment> comments,
-  }) async =>
-      _client.postRequest(
-        path: 'repos/$repo/pulls/$num/reviews',
-        data: {
-          'body': '$issueCount issue found.',
-          'event': 'COMMENT',
-          'comments': jsonEncode(comments),
-        },
-      );
+  }) async {
+    final data = _Data(
+      body: '$issueCount issues found.',
+      event: 'COMMENT',
+      comments: comments,
+    );
+    return _client.postRequest(
+      path: 'repos/$repo/pulls/$num/reviews',
+      data: jsonEncode(data),
+    );
+  }
+}
+
+class _Data {
+  _Data({
+    required this.body,
+    required this.event,
+    required this.comments,
+  });
+
+  final String body;
+  final String event;
+  final Iterable<Comment> comments;
+
+  Map<String, dynamic> toJson() => {
+        'body': body,
+        'event': event,
+        'comments': comments,
+      };
 }
