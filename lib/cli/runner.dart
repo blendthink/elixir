@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:args/command_runner.dart';
 import 'package:elixir/cli/command/run.dart';
 import 'package:elixir/cli/extension.dart';
@@ -19,9 +21,11 @@ class ElixirCommandRunner extends CommandRunner<dynamic> {
       VersionFlag(),
     ]);
 
+    final token = Platform.environment['GITHUB_TOKEN'] ?? '';
+
     final client = GitHubClient(
       client: Client(),
-      token: const String.fromEnvironment('GITHUB_TOKEN'),
+      token: token,
     );
 
     final repository = GitHubRepository(client: client);
