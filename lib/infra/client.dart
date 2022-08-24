@@ -1,5 +1,6 @@
 import 'package:elixir/data/model/exception/github.dart';
-import 'package:http/http.dart';
+import 'package:http/http.dart'
+    show BaseClient, Client, BaseRequest, StreamedResponse;
 
 class GitHubClient extends BaseClient {
   GitHubClient({
@@ -25,7 +26,7 @@ class GitHubClient extends BaseClient {
     required String data,
   }) async {
     final url = Uri.https(_authority, path);
-    final response = await post(url, body: data);
+    final response = await super.post(url, body: data);
     final statusCode = response.statusCode;
     switch (statusCode) {
       case 200:
@@ -40,8 +41,5 @@ class GitHubClient extends BaseClient {
   }
 
   @override
-  void close() {
-    _client.close();
-    super.close();
-  }
+  void close() => _client.close();
 }
