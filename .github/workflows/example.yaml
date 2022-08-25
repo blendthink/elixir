@@ -15,6 +15,6 @@ jobs:
       - uses: dart-lang/setup-dart@v1
 
       # https://github.com/blendthink/elixir
-      - uses: blendthink/elixir@v1
+      - uses: blendthink/elixir@v2
         with:
           dir: 'example'
