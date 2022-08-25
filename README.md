@@ -6,6 +6,8 @@
 
 A command-line tool for commenting `dart analyze --format=machine $dir` results to GitHub PullRequest.
 
+![Demo](docs/assets/demo.png)
+
 ## Required
 
 - Dart SDK version >=2.15.0 <3.0.0
