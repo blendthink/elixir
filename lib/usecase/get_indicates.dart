@@ -25,7 +25,7 @@ class GetIndicatesUseCase {
     final indicates = await Future.wait(
       results.map(
         (result) async {
-          final body = result.body;
+          final message = result.message;
           final path = result.filePath;
           final line = result.line;
 
@@ -43,7 +43,7 @@ class GetIndicatesUseCase {
           }
 
           return Indicate(
-            message: body,
+            message: message,
             path: path,
             position: line,
           );
@@ -67,7 +67,7 @@ extension _AnalyzeResultExt on AnalyzeResult {
     }
   }
 
-  String get body => '''
+  String get message => '''
 <tr>
   <td>:$_emoji:</td>
   <td>$errorMessage</td>
