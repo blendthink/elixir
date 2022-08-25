@@ -20,8 +20,10 @@ class GitHubRepository {
     final result = await _client.getRequest(
       path: 'repos/$repo/pulls/$num/comments',
     );
-    final json = jsonDecode(result) as Iterable<Map<String, dynamic>>;
-    return List<ReviewComment>.from(json.map(ReviewComment.fromJson));
+    final json = jsonDecode(result) as Iterable;
+    return List<ReviewComment>.from(
+      json.map((e) => ReviewComment.fromJson(e as Map<String, dynamic>)),
+    );
   }
 
   /// Create a review for a pull request

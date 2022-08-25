@@ -44,7 +44,7 @@ class GitHubClient extends BaseClient {
     required String path,
   }) async {
     final url = Uri.https(_authority, path);
-    final response = await super.get(url);
+    final response = await super.delete(url);
     _checkStatusCode(response.statusCode);
   }
 
