@@ -16,7 +16,7 @@ class GitHubRepository {
     required String repo,
     required int num,
     required int issueCount,
-    required Iterable<Comment> comments,
+    required List<Comment> comments,
   }) async {
     final data = _Data(
       body: '$issueCount issues found.',
@@ -39,7 +39,7 @@ class _Data {
 
   final String body;
   final String event;
-  final Iterable<Comment> comments;
+  final List<Comment> comments;
 
   Map<String, dynamic> toJson() => {
         'body': body,

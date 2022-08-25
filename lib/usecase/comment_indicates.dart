@@ -42,7 +42,7 @@ class CommentIndicatesUseCase {
         position: key.position,
         body: body,
       );
-    });
+    }).toList();
 
     return _gitHubRepository.createReview(
       repo: repo,
