@@ -2,7 +2,7 @@ name: "example"
 on:
   pull_request:
     paths:
-      - 'example'
+      - 'example/**'
 
 jobs:
   example:
