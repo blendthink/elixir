@@ -1,17 +1,17 @@
 class Comment {
   const Comment({
     required this.path,
-    required this.position,
+    required this.line,
     required this.body,
   });
 
   final String path;
-  final int position;
+  final int line;
   final String body;
 
   Map<String, dynamic> toJson() => {
         'path': path,
-        'position': position,
+        'line': line,
         'body': body,
       };
 }

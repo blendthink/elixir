@@ -19,7 +19,7 @@ class CommentIndicatesUseCase {
     final commentKeyGroup = indicates.groupBy<_CommentKey>(
       (indicate) => _CommentKey(
         path: indicate.path,
-        position: indicate.position,
+        line: indicate.line,
       ),
     );
 
@@ -34,7 +34,7 @@ class CommentIndicatesUseCase {
 </table>''';
       return Comment(
         path: key.path,
-        position: key.position,
+        line: key.line,
         body: body,
       );
     }).toList();
@@ -52,11 +52,11 @@ class CommentIndicatesUseCase {
 class _CommentKey {
   const _CommentKey({
     required this.path,
-    required this.position,
+    required this.line,
   });
 
   final String path;
-  final int position;
+  final int line;
 
   @override
   bool operator ==(Object other) =>
@@ -64,8 +64,8 @@ class _CommentKey {
       other is _CommentKey &&
           runtimeType == other.runtimeType &&
           path == other.path &&
-          position == other.position;
+          line == other.line;
 
   @override
-  int get hashCode => path.hashCode ^ position.hashCode;
+  int get hashCode => path.hashCode ^ line.hashCode;
 }

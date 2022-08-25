@@ -1,11 +1,11 @@
 class Indicate {
   const Indicate({
     required this.path,
-    required this.position,
+    required this.line,
     required this.message,
   });
 
   final String path;
-  final int position;
+  final int line;
   final String message;
 }

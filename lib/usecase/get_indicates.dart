@@ -45,7 +45,7 @@ class GetIndicatesUseCase {
           return Indicate(
             message: message,
             path: path,
-            position: line,
+            line: line,
           );
         },
       ),
