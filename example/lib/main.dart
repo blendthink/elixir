@@ -1,5 +1,5 @@
 void info() {
-  final unused = '';
+  final unused = ''
 }
 
 void error() {
