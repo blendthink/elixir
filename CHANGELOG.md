@@ -1,3 +1,16 @@
+## 2.0.0
+
+### Changed
+
+- Changed to use "Create a review for a pull request" API.
+  - https://docs.github.com/en/rest/pulls/reviews#create-a-review-for-a-pull-request
+- Changed to use `dart analyze --format=machine` command.
+
+### Improved
+
+- Supported for Dart SDK 2.15.0.
+- Reduced dependent packages.
+
 ## 1.0.6
 
 ### Fixed

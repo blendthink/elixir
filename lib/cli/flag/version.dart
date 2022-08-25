@@ -2,8 +2,6 @@ import 'package:args/args.dart';
 import 'package:elixir/cli/option.dart';
 
 class VersionFlag extends Flag {
-  static const _name = 'version';
-
   VersionFlag()
       : super(
           _name,
@@ -12,7 +10,7 @@ class VersionFlag extends Flag {
           negatable: false,
         );
 
-  static bool enabled(ArgResults argResults) {
-    return argResults.wasParsed(_name);
-  }
+  static const _name = 'version';
+
+  static bool enabled(ArgResults argResults) => argResults.wasParsed(_name);
 }

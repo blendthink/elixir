@@ -1,66 +1,74 @@
 import 'dart:convert';
 
-import 'package:elixir/data/model/review_comment.dart';
-import 'package:elixir/data/source/process.dart';
+import 'package:elixir/data/model/comment.dart';
+import 'package:elixir/infra/client.dart';
+import 'package:elixir/infra/response/comment.dart';
 
 class GitHubRepository {
-  final ProcessRunner _runner;
-
   const GitHubRepository({
-    ProcessRunner runner = const ProcessRunner('gh'),
-  }) : _runner = runner;
+    required GitHubClient client,
+  }) : _client = client;
 
-  /// gh api \
-  ///   -H "Accept: application/vnd.github.v3+json" \
-  ///   /repos/{repo}/pulls/{num}/comments
-  Future<Iterable<ReviewComment>> getReviewComments({
+  final GitHubClient _client;
+
+  /// List review comments on a pull request
+  /// https://docs.github.com/en/rest/pulls/comments#list-review-comments-on-a-pull-request
+  Future<List<ReviewComment>> listReviewComments({
     required String repo,
     required int num,
   }) async {
-    final result = await _runner.run([
-      'api',
-      '-H',
-      'Accept: application/vnd.github.v3+json',
-      '/repos/$repo/pulls/$num/comments',
-    ]);
-
-    return (jsonDecode(result) as List)
-        .map((json) => ReviewComment.fromJson(json));
+    final result = await _client.getRequest(
+      path: 'repos/$repo/pulls/$num/comments',
+    );
+    final json = jsonDecode(result) as Iterable;
+    return List<ReviewComment>.from(
+      json.map((e) => ReviewComment.fromJson(e as Map<String, dynamic>)),
+    );
   }
 
-  /// gh api \
-  ///   --method POST \
-  ///   -H "Accept: application/vnd.github.v3+json" \
-  ///   /repos/{repo}/pulls/{num}/comments \
-  ///   -f body={body} \
-  ///   -f commit_id={commitId} \
-  ///   -f path={path} \
-  ///   -F line={line}
-  Future<ReviewComment> createReviewComment({
+  /// Create a review for a pull request
+  /// https://docs.github.com/en/rest/pulls/reviews#create-a-review-for-a-pull-request
+  Future<String> createReview({
     required String repo,
     required int num,
-    required String body,
-    required String commitId,
-    required String path,
-    required int line,
+    required List<Comment> comments,
   }) async {
-    final result = await _runner.run([
-      'api',
-      '--method',
-      'POST',
-      '-H',
-      'Accept: application/vnd.github.v3+json',
-      '/repos/$repo/pulls/$num/comments',
-      '-f',
-      'body=$body',
-      '-f',
-      'commit_id=$commitId',
-      '-f',
-      'path=$path',
-      '-F',
-      'line=$line',
-    ]);
-
-    return ReviewComment.fromJson(jsonDecode(result));
+    final data = _Data(
+      body: '',
+      event: 'COMMENT',
+      comments: comments,
+    );
+    return _client.postRequest(
+      path: 'repos/$repo/pulls/$num/reviews',
+      data: jsonEncode(data),
+    );
   }
+
+  /// Delete a review comment for a pull request
+  /// https://docs.github.com/en/rest/pulls/comments#delete-a-review-comment-for-a-pull-request
+  Future<void> deleteReviewComment({
+    required String repo,
+    required int commentId,
+  }) async =>
+      _client.deleteRequest(
+        path: 'repos/$repo/pulls/comments/$commentId',
+      );
+}
+
+class _Data {
+  _Data({
+    required this.body,
+    required this.event,
+    required this.comments,
+  });
+
+  final String body;
+  final String event;
+  final List<Comment> comments;
+
+  Map<String, dynamic> toJson() => {
+        'body': body,
+        'event': event,
+        'comments': comments,
+      };
 }

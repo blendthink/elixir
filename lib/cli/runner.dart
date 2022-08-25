@@ -1,11 +1,18 @@
+import 'dart:io';
+
 import 'package:args/command_runner.dart';
 import 'package:elixir/cli/command/run.dart';
 import 'package:elixir/cli/extension.dart';
 import 'package:elixir/cli/flag/version.dart';
-import 'package:elixir/gen/pubspec.dart';
+import 'package:elixir/data/repository/github.dart';
+import 'package:elixir/gen/version.gen.dart';
+import 'package:elixir/infra/client.dart';
+import 'package:elixir/usecase/comment_indicates.dart';
+import 'package:elixir/usecase/delete_previous_comments.dart';
 import 'package:elixir/util/log.dart';
+import 'package:http/http.dart';
 
-class ElixirCommandRunner extends CommandRunner {
+class ElixirCommandRunner extends CommandRunner<dynamic> {
   ElixirCommandRunner()
       : super(
           'Elixir',
@@ -14,15 +21,35 @@ class ElixirCommandRunner extends CommandRunner {
     argParser.addFlags([
       VersionFlag(),
     ]);
-    addCommand(RunCommand());
+
+    final token = Platform.environment['GITHUB_TOKEN'] ?? '';
+
+    final client = GitHubClient(
+      client: Client(),
+      token: token,
+    );
+
+    final repository = GitHubRepository(client: client);
+    final deletePreviousCommentsUseCase = DeletePreviousCommentsUseCase(
+      gitHubRepository: repository,
+    );
+    final commentIndicatesUseCase = CommentIndicatesUseCase(
+      gitHubRepository: repository,
+    );
+    addCommand(
+      RunCommand(
+        deletePreviousComments: deletePreviousCommentsUseCase,
+        commentIndicates: commentIndicatesUseCase,
+      ),
+    );
   }
 
   @override
-  Future run(Iterable<String> args) async {
+  Future<dynamic> run(Iterable<String> args) async {
     final argResults = parse(args);
 
     if (VersionFlag.enabled(argResults)) {
-      log.i(pubspec.version);
+      log.i(packageVersion);
       return;
     }
 

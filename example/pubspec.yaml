@@ -3,4 +3,4 @@ description: A example of Elixir.
 version: 1.0.0
 publish_to: 'none'
 environment:
-  sdk: '>=2.17.5 <3.0.0'
+  sdk: '>=2.15.0 <3.0.0'

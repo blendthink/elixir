@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:args/args.dart' show ArgResults;
 import 'package:args/command_runner.dart';
@@ -10,30 +9,17 @@ import 'package:elixir/cli/option/head.dart';
 import 'package:elixir/cli/option/num.dart';
 import 'package:elixir/cli/option/repo.dart';
 import 'package:elixir/usecase/comment_indicates.dart';
-import 'package:elixir/usecase/filter_indicates.dart';
+import 'package:elixir/usecase/delete_previous_comments.dart';
 import 'package:elixir/usecase/get_indicates.dart';
 import 'package:elixir/util/log.dart';
 
 class RunCommand extends Command<dynamic> {
-  @override
-  String get name => 'run';
-
-  @override
-  String get description =>
-      'Run `dart analyze` and comment on the GitHub Pull Request.';
-
-  final _encoder = JsonEncoder.withIndent('  ');
-
-  final GetIndicatesUseCase _getIndicates;
-  final FilterIndicatesUseCase _filterIndicates;
-  final CommentIndicatesUseCase _commentIndicates;
-
   RunCommand({
     GetIndicatesUseCase getIndicates = const GetIndicatesUseCase(),
-    FilterIndicatesUseCase filterIndicates = const FilterIndicatesUseCase(),
-    CommentIndicatesUseCase commentIndicates = const CommentIndicatesUseCase(),
+    required DeletePreviousCommentsUseCase deletePreviousComments,
+    required CommentIndicatesUseCase commentIndicates,
   })  : _getIndicates = getIndicates,
-        _filterIndicates = filterIndicates,
+        _deletePreviousComments = deletePreviousComments,
         _commentIndicates = commentIndicates {
     argParser.addOptions([
       RepoOption(),
@@ -43,6 +29,17 @@ class RunCommand extends Command<dynamic> {
       DirOption(),
     ]);
   }
+
+  @override
+  String get name => 'run';
+
+  @override
+  String get description =>
+      'Run `dart analyze` and comment on the GitHub Pull Request.';
+
+  final GetIndicatesUseCase _getIndicates;
+  final DeletePreviousCommentsUseCase _deletePreviousComments;
+  final CommentIndicatesUseCase _commentIndicates;
 
   @override
   FutureOr<dynamic>? run() async {
@@ -58,25 +55,18 @@ class RunCommand extends Command<dynamic> {
       head: head,
     );
     if (indicates.isEmpty) {
-      return;
-    }
-
-    final filteredIndicates = await _filterIndicates(
-      repo: repo,
-      num: num,
-      indicates: indicates,
-    );
-    if (filteredIndicates.isEmpty) {
       log.i('In this Pull Request ( #$num ), no issues found!');
       return;
     }
 
-    final reviewComments = await _commentIndicates(
+    await _deletePreviousComments(repo: repo, num: num);
+
+    final result = await _commentIndicates(
       repo: repo,
       num: num,
-      indicates: filteredIndicates,
+      indicates: indicates,
     );
-    log.i(_encoder.convert(reviewComments));
+    log.i(result);
   }
 
   @override

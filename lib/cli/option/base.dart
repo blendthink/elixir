@@ -3,8 +3,6 @@ import 'package:elixir/cli/extension.dart';
 import 'package:elixir/cli/option.dart';
 
 class BaseOption extends Option {
-  static const _name = 'base';
-
   BaseOption()
       : super(
           _name,
@@ -12,6 +10,8 @@ class BaseOption extends Option {
           help: 'set pull request base',
           mandatory: true,
         );
+
+  static const _name = 'base';
 
   static String base(
     ArgResults argResults,

@@ -3,8 +3,6 @@ import 'package:elixir/cli/extension.dart';
 import 'package:elixir/cli/option.dart';
 
 class HeadOption extends Option {
-  static const _name = 'head';
-
   HeadOption()
       : super(
           _name,
@@ -12,6 +10,8 @@ class HeadOption extends Option {
           help: 'set pull request head',
           mandatory: true,
         );
+
+  static const _name = 'head';
 
   static String head(
     ArgResults argResults,
