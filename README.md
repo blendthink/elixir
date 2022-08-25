@@ -43,25 +43,21 @@ jobs:
 
 ### CLI
 
-This package uses Git and GitHub CLI internally.
+This package uses Git internally.
 
-If you are using GitHub Actions, you can skip steps 1 and 2.
+If you are using GitHub Actions, you can skip steps 1.
 
 #### 1. Install Git
 
 https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
-#### 2. Install GitHub CLI
-
-https://github.com/cli/cli#installation
-
-#### 3. Active package
+#### 2. Active package
 
 ```shell
 dart pub global activate elixir
 ```
 
-#### 4. Run package
+#### 3. Run package
 
 ```shell
 cd {git-repository-path}
