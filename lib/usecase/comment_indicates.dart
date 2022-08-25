@@ -1,3 +1,4 @@
+import 'package:elixir/data/keys.dart';
 import 'package:elixir/data/model/comment.dart';
 import 'package:elixir/data/model/indicate.dart';
 import 'package:elixir/data/repository/github.dart';
@@ -27,6 +28,7 @@ class CommentIndicatesUseCase {
       final key = entry.key;
       final value = entry.value;
       final body = '''
+<!-- $elixirKey -->
 <table>
   <tbody>
 ${value.map((e) => e.message).join('\n')}
