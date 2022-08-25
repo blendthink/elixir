@@ -62,7 +62,6 @@ Future<void> main() async {
         final actual = await repository.createReview(
           repo: 'octocat/Hello-World',
           num: 12,
-          issueCount: 2,
           comments: [],
         );
         expect(actual, expected);
@@ -77,7 +76,6 @@ Future<void> main() async {
           () => repository.createReview(
             repo: 'octocat/Hello-World',
             num: 12,
-            issueCount: 2,
             comments: [],
           ),
           throwsA(expected),
@@ -91,7 +89,6 @@ Future<void> main() async {
           () => repository.createReview(
             repo: 'octocat/Hello-World',
             num: 12,
-            issueCount: 2,
             comments: [],
           ),
           throwsA(expected),
@@ -105,7 +102,6 @@ Future<void> main() async {
           () => repository.createReview(
             repo: 'octocat/Hello-World',
             num: 12,
-            issueCount: 2,
             comments: [],
           ),
           throwsA(expected),

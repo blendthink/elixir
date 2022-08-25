@@ -44,7 +44,6 @@ ${value.map((e) => e.message).join('\n')}
     return _gitHubRepository.createReview(
       repo: repo,
       num: num,
-      issueCount: indicates.length,
       comments: comments,
     );
   }

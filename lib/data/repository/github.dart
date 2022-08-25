@@ -15,7 +15,6 @@ class GitHubRepository {
   Future<String> createReview({
     required String repo,
     required int num,
-    required int issueCount,
     required List<Comment> comments,
   }) async {
     final data = _Data(
