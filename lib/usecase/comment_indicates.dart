@@ -29,7 +29,7 @@ class CommentIndicatesUseCase {
       final body = '''
 <table>
   <tbody>
-    ${value.map((e) => e.message).join('\n')}
+${value.map((e) => e.message).join('\n')}
   </tbody>
 </table>''';
       return Comment(

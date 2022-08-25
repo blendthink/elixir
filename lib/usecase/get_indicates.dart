@@ -68,8 +68,8 @@ extension _AnalyzeResultExt on AnalyzeResult {
   }
 
   String get message => '''
-<tr>
-  <td>:$_emoji:</td>
-  <td>$errorMessage</td>
-</tr>''';
+    <tr>
+      <td>:$_emoji:</td>
+      <td>$errorMessage</td>
+    </tr>''';
 }
