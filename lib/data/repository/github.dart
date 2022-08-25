@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:elixir/data/model/comment.dart';
 import 'package:elixir/infra/client.dart';
+import 'package:elixir/infra/response/comment.dart';
 
 class GitHubRepository {
   const GitHubRepository({
@@ -12,13 +13,16 @@ class GitHubRepository {
 
   /// List review comments on a pull request
   /// https://docs.github.com/en/rest/pulls/comments#list-review-comments-on-a-pull-request
-  Future<String> listReviewComments({
+  Future<List<ReviewComment>> listReviewComments({
     required String repo,
     required int num,
-  }) =>
-      _client.getRequest(
-        path: 'repos/$repo/pulls/$num/comments',
-      );
+  }) async {
+    final result = await _client.getRequest(
+      path: 'repos/$repo/pulls/$num/comments',
+    );
+    final json = jsonDecode(result) as Iterable<Map<String, dynamic>>;
+    return List<ReviewComment>.from(json.map(ReviewComment.fromJson));
+  }
 
   /// Create a review for a pull request
   /// https://docs.github.com/en/rest/pulls/reviews#create-a-review-for-a-pull-request
