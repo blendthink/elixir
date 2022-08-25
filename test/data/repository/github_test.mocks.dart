@@ -40,7 +40,7 @@ class MockGitHubClient extends _i1.Mock implements _i3.GitHubClient {
                   Future<_i2.StreamedResponse>.value(_FakeStreamedResponse_0()))
           as _i4.Future<_i2.StreamedResponse>);
   @override
-  _i4.Future<String> postRequest({String? path, Map<String, String>? data}) =>
+  _i4.Future<String> postRequest({String? path, String? data}) =>
       (super.noSuchMethod(
           Invocation.method(#postRequest, [], {#path: path, #data: data}),
           returnValue: Future<String>.value('')) as _i4.Future<String>);
