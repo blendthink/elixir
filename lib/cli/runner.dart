@@ -8,6 +8,7 @@ import 'package:elixir/data/repository/github.dart';
 import 'package:elixir/gen/version.gen.dart';
 import 'package:elixir/infra/client.dart';
 import 'package:elixir/usecase/comment_indicates.dart';
+import 'package:elixir/usecase/delete_previous_comments.dart';
 import 'package:elixir/util/log.dart';
 import 'package:http/http.dart';
 
@@ -29,10 +30,18 @@ class ElixirCommandRunner extends CommandRunner<dynamic> {
     );
 
     final repository = GitHubRepository(client: client);
+    final deletePreviousCommentsUseCase = DeletePreviousCommentsUseCase(
+      gitHubRepository: repository,
+    );
     final commentIndicatesUseCase = CommentIndicatesUseCase(
       gitHubRepository: repository,
     );
-    addCommand(RunCommand(commentIndicates: commentIndicatesUseCase));
+    addCommand(
+      RunCommand(
+        deletePreviousComments: deletePreviousCommentsUseCase,
+        commentIndicates: commentIndicatesUseCase,
+      ),
+    );
   }
 
   @override

@@ -9,14 +9,17 @@ import 'package:elixir/cli/option/head.dart';
 import 'package:elixir/cli/option/num.dart';
 import 'package:elixir/cli/option/repo.dart';
 import 'package:elixir/usecase/comment_indicates.dart';
+import 'package:elixir/usecase/delete_previous_comments.dart';
 import 'package:elixir/usecase/get_indicates.dart';
 import 'package:elixir/util/log.dart';
 
 class RunCommand extends Command<dynamic> {
   RunCommand({
     GetIndicatesUseCase getIndicates = const GetIndicatesUseCase(),
+    required DeletePreviousCommentsUseCase deletePreviousComments,
     required CommentIndicatesUseCase commentIndicates,
   })  : _getIndicates = getIndicates,
+        _deletePreviousComments = deletePreviousComments,
         _commentIndicates = commentIndicates {
     argParser.addOptions([
       RepoOption(),
@@ -35,6 +38,7 @@ class RunCommand extends Command<dynamic> {
       'Run `dart analyze` and comment on the GitHub Pull Request.';
 
   final GetIndicatesUseCase _getIndicates;
+  final DeletePreviousCommentsUseCase _deletePreviousComments;
   final CommentIndicatesUseCase _commentIndicates;
 
   @override
@@ -54,6 +58,8 @@ class RunCommand extends Command<dynamic> {
       log.i('In this Pull Request ( #$num ), no issues found!');
       return;
     }
+
+    await _deletePreviousComments(repo: repo, num: num);
 
     final result = await _commentIndicates(
       repo: repo,
