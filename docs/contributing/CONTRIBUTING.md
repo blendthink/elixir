@@ -60,7 +60,7 @@ When you're finished with the changes, create a pull request, also known as a PR
 Congratulations 🎉🎉 Thanks you ✨
 
 <!-- Links -->
-[Code of Conduct]: ../CODE_OF_CONDUCT.md
+[Code of Conduct]: ../CODE_OF_CONDUCT
 [IntelliJ IDEA]: https://www.jetbrains.com/idea
 [Get the Dart SDK]: https://dart.dev/get-dart
 [Run/debug configurations]: https://www.jetbrains.com/help/idea/run-debug-configuration.html
