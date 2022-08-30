@@ -15,7 +15,7 @@ import 'package:http/http.dart';
 class ElixirCommandRunner extends CommandRunner<dynamic> {
   ElixirCommandRunner()
       : super(
-          'Elixir',
+          'elixir',
           'Tool for commenting `dart analyze` results to GitHub PullRequest.',
         ) {
     argParser.addFlags([

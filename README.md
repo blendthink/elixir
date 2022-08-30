@@ -70,3 +70,16 @@ elixir run \
   --head={head} \
   --dir={dir}
 ```
+
+## How to contribute
+
+You should follow our [Code of Conduct].
+
+See [CONTRIBUTING GUIDELINES] for contributing conventions.
+
+### Contributors
+
+<!-- Links -->
+
+[Code of Conduct]: docs/CODE_OF_CONDUCT.md
+[CONTRIBUTING GUIDELINES]: docs/contributing/CONTRIBUTING.md
