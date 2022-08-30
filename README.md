@@ -79,6 +79,18 @@ See [CONTRIBUTING GUIDELINES] for contributing conventions.
 
 ### Contributors
 
+<table>
+<tr>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/blendthink>
+            <img src=https://avatars.githubusercontent.com/u/32213113?v=4 width="100;"  alt=blendthink/>
+            <br />
+            <sub style="font-size:14px"><b>blendthink</b></sub>
+        </a>
+    </td>
+</tr>
+</table>
+
 <!-- Links -->
 
 [Code of Conduct]: docs/CODE_OF_CONDUCT.md
