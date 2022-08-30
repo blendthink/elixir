@@ -93,5 +93,5 @@ See [Contributor Guide] for contributing conventions.
 
 <!-- Links -->
 
-[Code of Conduct]: docs/CODE_OF_CONDUCT.md
+[Code of Conduct]: docs/CODE_OF_CONDUCT
 [Contributor Guide]: docs/contributing/CONTRIBUTING.md
