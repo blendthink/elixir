@@ -75,7 +75,7 @@ elixir run \
 
 You should follow our [Code of Conduct].
 
-See [CONTRIBUTING GUIDELINES] for contributing conventions.
+See [Contributor Guide] for contributing conventions.
 
 ### Contributors
 
@@ -94,4 +94,4 @@ See [CONTRIBUTING GUIDELINES] for contributing conventions.
 <!-- Links -->
 
 [Code of Conduct]: docs/CODE_OF_CONDUCT.md
-[CONTRIBUTING GUIDELINES]: docs/contributing/CONTRIBUTING.md
+[Contributor Guide]: docs/contributing/CONTRIBUTING.md
