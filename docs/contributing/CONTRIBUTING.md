@@ -60,11 +60,11 @@ When you're finished with the changes, create a pull request, also known as a PR
 Congratulations 🎉🎉 Thanks you ✨
 
 <!-- Links -->
-[Code of Conduct]: ./CODE_OF_CONDUCT.md
+[Code of Conduct]: ../CODE_OF_CONDUCT.md
 [IntelliJ IDEA]: https://www.jetbrains.com/idea
 [Get the Dart SDK]: https://dart.dev/get-dart
 [Run/debug configurations]: https://www.jetbrains.com/help/idea/run-debug-configuration.html
-[elixir.dart.run.xml]: ./.run/elixir.dart.run.xml
+[elixir.dart.run.xml]: ../../.run/elixir.dart.run.xml
 [Breakpoints]: https://pleiades.io/help/idea/using-breakpoints.html
 [issue form]: https://github.com/blendthink/elixir/issues/new/choose
-[SELF_REVIEW]: ./docs/contributing/SELF_REVIEW.md
+[SELF_REVIEW]: SELF_REVIEW.md
