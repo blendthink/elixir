@@ -1,3 +1,9 @@
+## 2.0.1
+
+### Fixed
+
+- Fixed to always delete previous comments.
+
 ## 2.0.0
 
 ### Changed

@@ -49,6 +49,8 @@ class RunCommand extends Command<dynamic> {
     final head = HeadOption.head(argResults, usageException);
     final dir = DirOption.dir(argResults, usageException);
 
+    await _deletePreviousComments(repo: repo, num: num);
+
     final indicates = await _getIndicates(
       dir: dir,
       base: base,
@@ -58,8 +60,6 @@ class RunCommand extends Command<dynamic> {
       log.i('In this Pull Request ( #$num ), no issues found!');
       return;
     }
-
-    await _deletePreviousComments(repo: repo, num: num);
 
     final result = await _commentIndicates(
       repo: repo,
