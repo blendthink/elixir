@@ -28,6 +28,7 @@ linter:
     #- discarded_futures # Taste
     - empty_statements
     - hash_and_equals
+    #- invalid_case_patterns # Available from Dart 3.0
     #- invariant_booleans # Removed
     - iterable_contains_unrelated_type
     - list_remove_unrelated_type
@@ -186,6 +187,7 @@ linter:
     - unawaited_futures
     - unnecessary_await_in_return
     - unnecessary_brace_in_string_interps
+    #- unnecessary_breaks # Unreleased
     - unnecessary_const
     - unnecessary_constructor_name
     #- unnecessary_final # incompatible with `prefer_final_locals`
