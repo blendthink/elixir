@@ -15,9 +15,9 @@ import 'package:elixir/util/log.dart';
 
 class RunCommand extends Command<dynamic> {
   RunCommand({
-    GetIndicatesUseCase getIndicates = const GetIndicatesUseCase(),
     required DeletePreviousCommentsUseCase deletePreviousComments,
     required CommentIndicatesUseCase commentIndicates,
+    GetIndicatesUseCase getIndicates = const GetIndicatesUseCase(),
   })  : _getIndicates = getIndicates,
         _deletePreviousComments = deletePreviousComments,
         _commentIndicates = commentIndicates {

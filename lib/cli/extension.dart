@@ -1,4 +1,4 @@
-import 'package:args/args.dart' show ArgResults, ArgParser;
+import 'package:args/args.dart' show ArgParser, ArgResults;
 import 'package:elixir/cli/option.dart';
 
 extension ArgResultsExt on ArgResults {

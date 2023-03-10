@@ -1,6 +1,6 @@
 import 'package:elixir/data/model/exception/github.dart';
 import 'package:http/http.dart'
-    show BaseClient, Client, BaseRequest, StreamedResponse;
+    show BaseClient, BaseRequest, Client, StreamedResponse;
 
 class GitHubClient extends BaseClient {
   GitHubClient({
