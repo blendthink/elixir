@@ -190,7 +190,7 @@ linter:
     - unnecessary_getters_setters
     - unnecessary_lambdas
     - unnecessary_nullable_for_final_variable_declarations
-    #- unnecessary_null_aware_operator_on_extension_on_nullable # Available from Dart 2.18
+    - unnecessary_null_aware_operator_on_extension_on_nullable
     - unnecessary_null_checks
     - unnecessary_overrides
     - unnecessary_parenthesis
@@ -198,7 +198,7 @@ linter:
     - unnecessary_string_escapes
     - unnecessary_string_interpolations
     - unnecessary_this
-    #- unnecessary_to_list_in_spreads # Available from Dart 2.18
+    - unnecessary_to_list_in_spreads
     #- unreachable_from_main # Available from Dart 2.19
     #- use_colored_box # Use with Flutter
     #- use_decorated_box # Use with Flutter
