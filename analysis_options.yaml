@@ -14,7 +14,7 @@ linter:
     - avoid_empty_else
     #- avoid_print # Taste
     - avoid_relative_lib_imports
-    - avoid_returning_null_for_future
+    #- avoid_returning_null_for_future # Deprecated
     - avoid_slow_async_io
     - avoid_type_to_string
     - avoid_types_as_parameter_names
@@ -28,7 +28,7 @@ linter:
     #- discarded_futures # Taste
     - empty_statements
     - hash_and_equals
-    #- invariant_booleans # Deprecated
+    #- invariant_booleans # Removed
     - iterable_contains_unrelated_type
     - list_remove_unrelated_type
     - literal_only_boolean_expressions
@@ -50,11 +50,11 @@ linter:
     - always_declare_return_types
     #- always_put_control_body_on_new_line # Taste
     - always_put_required_named_parameters_first
-    - always_require_non_null_named_parameters
+    #- always_require_non_null_named_parameters # Deprecated
     #- always_specify_types # Taste
     - annotate_overrides
     #- avoid_annotating_with_dynamic # Taste
-    #- avoid_as # Deprecated
+    #- avoid_as # Removed
     - avoid_bool_literals_in_conditional_expressions
     - avoid_catches_without_on_clauses
     - avoid_catching_errors
@@ -74,7 +74,7 @@ linter:
     - avoid_private_typedef_functions
     - avoid_redundant_argument_values
     - avoid_renaming_method_parameters
-    - avoid_returning_null
+    #- avoid_returning_null # Deprecated
     - avoid_returning_null_for_void
     - avoid_returning_this
     - avoid_return_types_on_setters
@@ -100,6 +100,7 @@ linter:
     - do_not_use_environment
     - empty_catches
     - empty_constructor_bodies
+    #- enable_null_safety # Removed
     - eol_at_end_of_file
     - exhaustive_cases
     - file_names
@@ -132,7 +133,7 @@ linter:
     - prefer_adjacent_string_concatenation
     - prefer_asserts_in_initializer_lists
     #- prefer_asserts_with_message # Taste
-    #- prefer_bool_in_asserts # Deprecated
+    #- prefer_bool_in_asserts # Removed
     - prefer_collection_literals
     - prefer_conditional_assignment
     - prefer_const_constructors
@@ -142,7 +143,7 @@ linter:
     - prefer_constructors_over_static_methods
     - prefer_contains
     #- prefer_double_quotes # incompatible with `prefer_single_quotes`
-    - prefer_equal_for_default_values
+    #- prefer_equal_for_default_values # Removed
     - prefer_expression_function_bodies
     - prefer_final_fields
     - prefer_final_in_for_each
@@ -178,7 +179,7 @@ linter:
     #- sort_child_properties_last # Use with Flutter
     - sort_constructors_first
     - sort_unnamed_constructors_first
-    #- super_goes_last # Deprecated
+    #- super_goes_last # Removed
     - tighten_type_of_initializing_formals
     - type_annotate_public_apis
     - type_init_formals
