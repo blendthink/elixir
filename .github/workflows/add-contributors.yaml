@@ -12,7 +12,7 @@ jobs:
   add-contributors:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: delete old branch (If it exists)
         run: git push origin --delete ${{ env.UPDATE_CONTRIBUTORS_BRANCH }}
         continue-on-error: true
